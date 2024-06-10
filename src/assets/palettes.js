@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+import { Platform } from "react-native";
 const palettes = {
   white: "#FFFFFF",
   black: "#000000",
@@ -328,20 +329,104 @@ export const theme = {
     ...palettes,
     ...lightColors,
   },
-  space: {
-    1: 10,
-    2: 20,
-    3: 30,
-    8: 50,
-    50: 100,
+  fontWeight: {
+    thin: 100,
+    extraLight: 200,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semiBold: 600,
+    bold: 700,
+    extraBold: 800,
+    black: 900
   },
+  fontSize: {
+    base: 8,
+    nano: 10,
+    micro: 12,
+    small: 14,
+    medium: 16,
+    normal: 18,
+    large: 20,
+    xlarge: 22,
+    xxlarge: 26,
+    xxxlarge: 30,
+    splash: 40,
+  },
+  shadow: {
+    light: Platform.select({
+      ios: {
+        shadowColor: theme.colors.gray[900],
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+      },
+      android: {
+        elevation: 1,
+      },
+    }),
+    lightMedium: Platform.select({
+      ios: {
+        shadowColor: theme.colors.gray[900],
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.24,
+        shadowRadius: 2.84,
+      },
+      android: {
+        elevation: 3,
+      },
+    }),
+    medium: Platform.select({
+      ios: {
+        shadowColor: theme.colors.gray[900],
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.29,
+        shadowRadius: 4.65,
+      },
+      android: {
+        elevation: 7,
+      },
+    }),
+    mediumDark: Platform.select({
+      ios: {
+        shadowColor: theme.colors.gray[900],
+        shadowOffset: { width: 0, height: 5 },
+        shadowOpacity: 0.36,
+        shadowRadius: 6.68,
+      },
+      android: {
+        elevation: 10,
+      },
+    }),
+    dark: Platform.select({
+      ios: {
+        shadowColor: theme.colors.gray[900],
+        shadowOffset: { width: 0, height: 7 },
+        shadowOpacity: 0.41,
+        shadowRadius: 9.11,
+      },
+      android: {
+        elevation: 14,
+      },
+    }),
+    veryDark: Platform.select({
+      ios: {
+        shadowColor: theme.colors.gray[900],
+        shadowOffset: { width: 0, height: 10 },
+        shadowOpacity: 0.5,
+        shadowRadius: 13.34,
+      },
+      android: {
+        elevation: 20,
+      },
+    }),
+  },
+  textAlign: {
+    left: { textAlign: 'left' },
+    right: { textAlign: 'right' },
+    center: { textAlign: 'center' },
+    justify: { textAlign: 'justify' }
+  }
 };
 
-export const breakpoints = {
-  "base": 0,
-  "sm": 480,
-  "md": 768,
-  "lg": 992,
-  "xl": 1280,
-  "2xl": 1536,
-};
+
