@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
-import { Platform } from "react-native";
+
 const palettes = {
   white: "#FFFFFF",
   black: "#000000",
   lightText: "#FFFFFF",
   darkText: "#000000",
-  // Primary colors
+  transparent: 'rgba(0, 0, 0, 0.5)',
   rose: {
     50: "#fff1f2",
     100: "#ffe4e6",
@@ -245,8 +245,9 @@ const palettes = {
     700: "#404040",
     800: "#262626",
     900: "#171717",
-  },
+  }, 
   gray: {
+    1: "#FFFFFF",
     50: "#fafafa",
     100: "#f4f4f5",
     200: "#e4e4e7",
@@ -256,7 +257,7 @@ const palettes = {
     600: "#52525b",
     700: "#3f3f46",
     800: "#27272a",
-    900: "#18181b",
+    900: "#18181b"    
   },
   coolGray: {
     50: "#f9fafb",
@@ -296,7 +297,7 @@ const palettes = {
   },
 };
 
-export const darkColors = {
+const darkColors = {
   button_hover: palettes.indigo[600],
   button_primary: palettes.indigo[500],
   cardBg: palettes.coolGray[800],
@@ -310,7 +311,7 @@ export const darkColors = {
   primary: palettes.blue[400],
 };
 
-export const lightColors = {
+const lightColors = {
   primary: palettes.amber[500],
 
   button_hover: palettes.indigo[700],
@@ -324,7 +325,7 @@ export const lightColors = {
   pressed_secondary: palettes.blue[400],
 };
 
-export const theme = {
+const theme = {
   colors: {
     ...palettes,
     ...lightColors,
@@ -353,74 +354,6 @@ export const theme = {
     xxxlarge: 30,
     splash: 40,
   },
-  shadow: {
-    light: Platform.select({
-      ios: {
-        shadowColor: theme.colors.gray[900],
-        shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: 0.22,
-        shadowRadius: 2.22,
-      },
-      android: {
-        elevation: 1,
-      },
-    }),
-    lightMedium: Platform.select({
-      ios: {
-        shadowColor: theme.colors.gray[900],
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.24,
-        shadowRadius: 2.84,
-      },
-      android: {
-        elevation: 3,
-      },
-    }),
-    medium: Platform.select({
-      ios: {
-        shadowColor: theme.colors.gray[900],
-        shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 0.29,
-        shadowRadius: 4.65,
-      },
-      android: {
-        elevation: 7,
-      },
-    }),
-    mediumDark: Platform.select({
-      ios: {
-        shadowColor: theme.colors.gray[900],
-        shadowOffset: { width: 0, height: 5 },
-        shadowOpacity: 0.36,
-        shadowRadius: 6.68,
-      },
-      android: {
-        elevation: 10,
-      },
-    }),
-    dark: Platform.select({
-      ios: {
-        shadowColor: theme.colors.gray[900],
-        shadowOffset: { width: 0, height: 7 },
-        shadowOpacity: 0.41,
-        shadowRadius: 9.11,
-      },
-      android: {
-        elevation: 14,
-      },
-    }),
-    veryDark: Platform.select({
-      ios: {
-        shadowColor: theme.colors.gray[900],
-        shadowOffset: { width: 0, height: 10 },
-        shadowOpacity: 0.5,
-        shadowRadius: 13.34,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-  },
   textAlign: {
     left: { textAlign: 'left' },
     right: { textAlign: 'right' },
@@ -428,5 +361,7 @@ export const theme = {
     justify: { textAlign: 'justify' }
   }
 };
+
+export { theme, lightColors, darkColors, palettes }
 
 

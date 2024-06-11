@@ -1,8 +1,8 @@
 import React, { forwardRef } from "react";
 
-const styled = (Component, { base, variants }) => {
+const styled = (Component, { base, variants } = {}) => {
   return forwardRef((props, ref) => {
-    const styles = { ...base };
+    const styles = { ...(base || {}) };
     const options = props;
 
     Object.keys(variants || {}).forEach((category) => {
