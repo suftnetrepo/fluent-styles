@@ -1,9 +1,9 @@
 import React from 'react'
-import { Pressable, View, TouchableOpacity } from 'react-native'
+import { Pressable } from 'react-native'
 import styled from '../../styled'
 import { theme } from '../../theme'
 
-const Button = styled(TouchableOpacity, {
+const Button = styled(Pressable, {
   base: {
     borderColor: theme.colors.gray[100],
     borderWidth: 1,
@@ -14,16 +14,20 @@ const Button = styled(TouchableOpacity, {
     alignItems: 'center'
   },
   variants: {
-    borderColor: theme.colors,
-    backgroundColor: theme.colors,
-    rounded: (size = 0) => ({
-      rounded: size
+    borderColor: color => ({
+      borderColor: color || theme.colors.gray[1]
     }),
-    flex: (size = 0) => ({
-      flex: size
+    rounded: size => ({
+      rounded: size || 0
+    }),
+    flex: size => ({
+      flex: size || 0
     }),
     width: size => ({
       width: size || 0
+    }),
+    backgroundColor: color => ({
+      backgroundColor: color || theme.colors.gray[1]
     })
   }
 })

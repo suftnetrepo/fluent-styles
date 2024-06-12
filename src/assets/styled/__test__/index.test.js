@@ -7,7 +7,7 @@ import { Text } from "react-native";
 import { theme } from "../../theme";
 
 const StyledText = React.forwardRef((props, ref) => <Text {...props} ref={ref} />)
-describe("Styled ease", () => {
+describe("Fluent Styles", () => {
 	it("Base style should render correctly", () => {
 		const base = {
 			backgroundColor: theme.colors.gray[50],
@@ -66,15 +66,15 @@ describe("Styled ease", () => {
 
 	it("Variants styles should render correctly with function variant", () => {
 		const variants = {
-			fontsize: (size) => ({
+			fontSize: (size) => ({
 				fontSize: size
 			})
 		}
 		const Text = styled(StyledText, { base: {}, variants });
-		const { getByText } = render(<Text fontsize={24}>Hello</Text>)
+		const { getByText } = render(<Text fontSize={24}>Hello</Text>)
 
 		expect(getByText("Hello")).toHaveStyle({
-			fontsize: 24
+			fontSize: 24
 		})
 	});
 

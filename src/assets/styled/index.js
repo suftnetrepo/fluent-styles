@@ -4,7 +4,7 @@ const styled = (Component, { base, variants } = {}) => {
   return forwardRef((props, ref) => {
     const styles = { ...(base || {}) };
     const options = props;
-
+  
     Object.keys(variants || {}).forEach((category) => {
       const variantSelected = options[category];
       const variantValue = variants[category];
@@ -33,7 +33,7 @@ const styled = (Component, { base, variants } = {}) => {
           typeof value === "function" ? value(options) : value
         );
       }
-    });
+    }); 
 
     if (props.style) {
       Object.assign(styles, props.style);

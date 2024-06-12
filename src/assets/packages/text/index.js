@@ -4,41 +4,53 @@ import { theme } from "../../theme";
 
 const StyledText = styled(Text, {
     base: {
-        fontSize: 16,
+        fontSize: theme.fontSize.normal,
         color: theme.colors.gray[800],
-        fontWeight: 400
+        fontWeight: theme.fontWeight.normal
     },
     variants: {
-        fontWeight: {...theme.fontWeight },       
-        backgroundColor: theme.colors,
-        color: {
-            ...theme.colors
-        },
-        fontSize: theme.fontSize,      
+        fontWeight: (size) => ({
+            fontWeight: size || theme.fontWeight.normal
+        }),
+        borderColor: (color) => ({
+            borderColor: color || theme.colors.gray[1]
+        }),
+        backgroundColor: (color) => ({
+            backgroundColor: color || theme.colors.gray[1]
+        }),
+        color: (color) => ({
+            color: color || theme.colors.gray[800]
+        }),
+        padding: (size) => ({
+            padding: size || 0
+        }),
+        fontSize: (size) => ({
+            fontSize: size || theme.fontSize.normal
+        }),
         flexWrap: 'wrap',
         selected: {
             true: {
-                ...theme.fontWeight.bold,
+                fontWeight: theme.fontWeight.bold,
                 color: theme.colors.gray[1]
             },
             false: {
-                ...theme.fontWeight.normal,
+                fontWeight: theme.fontWeight.normal,
                 color: theme.colors.gray[800]
-            }           
+            }
         },
         textAlign: {
-            'left': { 
+            'left': {
                 textAlign: 'left'
-             },
-            'right': { 
-                textAlign: 'right' 
             },
-            'center': { 
-                textAlign: 'center' 
+            'right': {
+                textAlign: 'right'
             },
-            'justify': { 
+            'center': {
+                textAlign: 'center'
+            },
+            'justify': {
                 textAlign: 'justify'
-             }
+            }
         }
     }
 })
