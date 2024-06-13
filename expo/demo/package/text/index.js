@@ -1,6 +1,6 @@
 import { Text } from "react-native";
-import { styled } from '../../../../expo/demo/package/styled'
-import { theme } from "../../theme";
+import { styled } from "../styled";
+import { theme } from "../theme";
 
 const StyledText = styled(Text, {
     base: {
@@ -10,23 +10,28 @@ const StyledText = styled(Text, {
     },
     variants: {
         fontWeight: (size) => ({
-            fontWeight: size || theme.fontWeight.normal
+            fontWeight: size
         }),
         borderColor: (color) => ({
-            borderColor: color || theme.colors.gray[1]
+            borderColor: color
         }),
         backgroundColor: (color) => ({
-            backgroundColor: color || theme.colors.gray[1]
+            backgroundColor: color
         }),
         color: (color) => ({
-            color: color || theme.colors.gray[800]
+            color: color
         }),
         padding: (size) => ({
-            padding: size || 0
+            padding: size
         }),
         fontSize: (size) => ({
-            fontSize: size || theme.fontSize.normal
+            fontSize: size
         }),
+        textDecorationLine: {
+            true: {
+                textDecorationLine: 'underline'
+            }
+        },
         flexWrap: 'wrap',
         selected: {
             true: {
@@ -55,4 +60,4 @@ const StyledText = styled(Text, {
     }
 })
 
-export { StyledText}
+export { StyledText }

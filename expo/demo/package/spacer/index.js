@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { styled } from '../../styled'
+import { styled } from "../styled";
 
 const Spacer = styled(View)
 

@@ -1,7 +1,6 @@
 import { View } from "react-native";
-import { styled } from '../../../../expo/demo/package/styled'
-import { theme } from "../../theme";
-import { shadow } from "../../utils/utils";
+import { styled } from "../styled";
+import { theme } from "../theme";
 
 const Stack = styled(View, {
     base :{
@@ -15,7 +14,7 @@ const Stack = styled(View, {
                 backgroundColor: theme.colors.transparent,
             }
         },
-        shadow  
+        // shadow  
     }
 })
 

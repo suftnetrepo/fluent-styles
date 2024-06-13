@@ -2,7 +2,7 @@
 import React from "react";
 import { render } from "@testing-library/react-native";
 import { expect } from '@jest/globals';
-import styled from "..";
+import {styled} from "..";
 import { Text } from "react-native";
 import { theme } from "../../theme";
 

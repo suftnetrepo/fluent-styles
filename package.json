@@ -1,15 +1,15 @@
 {
-  "name": "style-ease",
+  "name": "fluent-styles",
   "version": "1.0.0",
-  "description": "Develop styled variants on UI components",
-  "main": "index.js",
+  "description": "Develop different styled versions of UI components.",
+  "main": "lib/module/assets/index.js",
+  "module": "lib/module/assets/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/suftnetrepo/style-ease.git"
+    "url": "https://github.com/suftnetrepo/fluent-styles.git"
   },
   "author": "Abel Aghorighor <52415319+aaghorighor@users.noreply.github.com>",
   "license": "MIT",
-  "private": false,
   "keywords": [
     "react-native",
     "styles",
@@ -17,34 +17,34 @@
     "styling"
   ],
   "bugs": {
-    "url": "https://github.com/suftnetrepo/style-ease/issues"
+    "url": "https://github.com/suftnetrepo/fluent-styles/issues"
   },
-  "homepage": "https://github.com/suftnetrepo/style-ease#readme",
-  "dependencies": {   
+  "homepage": "https://github.com/suftnetrepo/fluent-styles#readme",
+  "dependencies": {
     "react": "*",
-    "react-native": "*" 
+    "react-native": "*"
   },
   "scripts": {
     "test": "jest",
-    "prepare": "bob build",
-    "release": "release-it"    
+    "build": "bob build",
+    "release": "release-it"
   },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
   },
-  "devDependencies": {    
-    "@babel/preset-env": "^7.24.7",   
+  "devDependencies": {
+    "@babel/plugin-transform-class-properties": "^7.24.7",
+    "@babel/plugin-transform-private-methods": "^7.24.7",
+    "@babel/plugin-transform-private-property-in-object": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
     "@testing-library/jest-native": "^5.4.3",
     "@testing-library/react-native": "^12.5.1",
     "jest": "^29.7.0",
-    "metro-react-native-babel-preset": "^0.77.0", 
+    "metro-react-native-babel-preset": "^0.77.0",
     "react-native-builder-bob": "^0.18.0",
     "react-test-renderer": "^18.3.1",
-    "release-it": "^14.2.2",
-    "@babel/plugin-transform-class-properties": "^7.24.7",
-    "@babel/plugin-transform-private-methods": "^7.24.7",
-    "@babel/plugin-transform-private-property-in-object": "^7.24.7"
+    "release-it": "^14.2.2"
   },
   "react-native-builder-bob": {
     "source": "src",
@@ -53,5 +53,9 @@
       "commonjs",
       "module"
     ]
+  },
+  "packageManager": "yarn@3.6.4",
+  "resolutions": {
+    "demo": "portal:/E:/Git/React Native/package/styled/expo/demo"
   }
 }

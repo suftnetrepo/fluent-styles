@@ -4,7 +4,7 @@ const styled = (Component, { base, variants } = {}) => {
   return forwardRef((props, ref) => {
     const styles = { ...(base || {}) };
     const options = props;
-  
+
     Object.keys(variants || {}).forEach((category) => {
       const variantSelected = options[category];
       const variantValue = variants[category];
@@ -33,13 +33,9 @@ const styled = (Component, { base, variants } = {}) => {
           typeof value === "function" ? value(options) : value
         );
       }
-    }); 
+    });  
 
-    if (props.style) {
-      Object.assign(styles, props.style);
-    }
-
-    return <Component {...props} style={styles} ref={ref} />;
+    return <Component {...props} style={styles} ref={ref}  />;
   });
 };
 
@@ -47,4 +43,4 @@ function getNestedVariant(object, path) {
   return path.split(".").reduce((acc, part) => acc && acc[part], object);
 }
 
-export default styled;
+export { styled }
