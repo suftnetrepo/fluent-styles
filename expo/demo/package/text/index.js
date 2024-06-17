@@ -11,19 +11,10 @@ const StyledText = styled(Text, {
     variants: {
         fontWeight: (size) => ({
             fontWeight: size
-        }),
-        borderColor: (color) => ({
-            borderColor: color
-        }),
-        backgroundColor: (color) => ({
-            backgroundColor: color
-        }),
+        }),       
         color: (color) => ({
             color: color
-        }),
-        padding: (size) => ({
-            padding: size
-        }),
+        }),        
         fontSize: (size) => ({
             fontSize: size
         }),

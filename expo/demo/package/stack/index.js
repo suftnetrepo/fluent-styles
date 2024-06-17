@@ -2,31 +2,29 @@ import { View } from "react-native";
 import { styled } from "../styled";
 import { theme } from "../theme";
 
-const Stack = styled(View, {
-    base :{
-        position: 'relative',        
+const YStack = styled(View, {
+    base: {
+        flexDirection: 'column',
     },
-    variants :{        
-        borderColor: theme.colors,
-        backgroundColor: theme.colors,
+    variants: {
         transparent: {
             true: {
                 backgroundColor: theme.colors.transparent,
             }
-        },
-        // shadow  
-    }
-})
-
-const YStack = styled(Stack, {
-    base: {
-        flexDirection: 'column',
+        }
     }   
 })
-const XStack = styled(Stack, {
+const XStack = styled(View, {
     base: {
         flexDirection: 'row',    
+    },
+    variants: {
+        transparent: {
+            true: {
+                backgroundColor: theme.colors.transparent,
+            }
+        }
     }
 })
 
-export { Stack, XStack, YStack }
+export { XStack, YStack }

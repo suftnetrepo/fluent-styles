@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pressable, TouchableOpacity, View } from 'react-native'
+import { Pressable, TouchableOpacity } from 'react-native'
 import { styled } from '../styled'
 import { theme } from '../theme'
 
@@ -17,7 +17,7 @@ const Button = styled(TouchableOpacity, {
     borderColor: color => ({
       borderColor: color
     }),
-    rounded: (size = 0) => ({
+    borderRadius: (size = 0) => ({
       borderRadius: size
     }),
     flex: size => ({
@@ -28,7 +28,15 @@ const Button = styled(TouchableOpacity, {
     }),
     backgroundColor: color => ({
       backgroundColor: color
-    })
+    }),
+    link: {
+      true: {
+        borderColor: theme.colors.transparent,
+        borderWidth: 0,
+        borderRadius: 0,
+        backgroundColor: theme.colors.transparent
+      }
+    }
   }
 })
 
