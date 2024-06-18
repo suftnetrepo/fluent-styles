@@ -9,24 +9,11 @@ import { StyledButton } from '../package/button'
 import { useNavigation } from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { StyledCycle } from '../package/cycle'
+import RenderHeader from '../shared/header'
+import { fontStyles } from '../shared/fontStyles'
 
 const Home = () => {
   const navigator = useNavigation()
-  const RenderHeader = ({ title }) => {
-    return (
-      <XStack flex={1} paddingHorizontal={16} alignItems='center'>
-        {title &&
-        <StyledText
-          color={theme.colors.gray[800]}
-          fontWeight={theme.fontWeight.normal}
-          fontSize={theme.fontSize.normal}
-					>
-          {title}
-        </StyledText>}
-        <StyledSpacer flex={1} />
-      </XStack>
-    )
-  }
 
   const RenderButton = ({ title, screen, icon }) => {
     return (
@@ -48,6 +35,7 @@ const Home = () => {
           </StyledCycle>
           <StyledSpacer marginVertical={8} />
           <StyledText
+            fontFamily ={fontStyles.OpenSansRegular}
             color={theme.colors.gray[800]}
             fontWeight={theme.fontWeight.normal}
             fontSize={theme.fontSize.normal}
@@ -62,8 +50,7 @@ const Home = () => {
   return (
     <StyledSafeAreaView backgroundColor={theme.colors.gray[200]}>
       <StyledHeader
-        backgroundColor={theme.colors.gray[100]}
-        paddingVertical={8}
+        backgroundColor={theme.colors.gray[1]}       
         statusProps={{ translucent: false }}
 			>
         <RenderHeader title={'Samples'} />
@@ -74,7 +61,7 @@ const Home = () => {
         <XStack justifyContent='flex-start' alignItems='flex-start'>
           <RenderButton title='Header' icon={'headset'} screen='header' />
           <StyledSpacer marginHorizontal={4} />
-          <RenderButton title={'Text'} icon={'note'} />
+          <RenderButton title={'Text'} icon={'note'} screen='text' />
           <StyledSpacer marginHorizontal={4} />
           <RenderButton title={'Card'} icon={'outbox'} />
         </XStack>
