@@ -27,12 +27,10 @@ const StyledText = styled(Text, {
         },
         flexWrap: 'wrap',
         selected: {
-            true: {
-                fontWeight: theme.fontWeight.bold,
+            true: {             
                 color: theme.colors.gray[1]
             },
-            false: {
-                fontWeight: theme.fontWeight.normal,
+            false: {               
                 color: theme.colors.gray[800]
             }
         },       

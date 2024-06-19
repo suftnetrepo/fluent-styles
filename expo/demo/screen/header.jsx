@@ -1,14 +1,13 @@
 import React from 'react'
 import { StyledSafeAreaView } from '../package/safeAreaView'
 import { StyledText } from '../package/text'
-import { YStack, XStack } from '../package/stack'
+import { YStack } from '../package/stack'
 import { theme } from '../package/theme'
 import { StyledSpacer } from '../package/spacer'
 import { StyledHeader } from '../package/header'
-import RenderHeader from '../shared/header'
+import SharedHeader from '../shared/header'
 
 const Header = () => {
- 
   return (
     <StyledSafeAreaView backgroundColor={theme.colors.gray[200]}>
       <StyledHeader
@@ -16,7 +15,7 @@ const Header = () => {
         paddingVertical={8}
         statusProps={{ translucent: false }}
 			>
-        <RenderHeader title={'Header'} leftIcon />
+        <SharedHeader title={'Header'} leftIcon />
       </StyledHeader>
       <YStack
         flex={1}
@@ -39,7 +38,7 @@ const Header = () => {
           paddingVertical={8}
           statusProps={{ translucent: false }}
 				>
-          <RenderHeader leftIcon />
+          <SharedHeader leftIcon />
         </StyledHeader>
         <StyledSpacer marginVertical={8} />
         <StyledHeader
@@ -48,7 +47,7 @@ const Header = () => {
           paddingVertical={8}
           statusProps={{ translucent: false }}
 				>
-          <RenderHeader title={'Testing'} leftIcon />
+          <SharedHeader title={'Testing'} leftIcon />
         </StyledHeader>
         <StyledSpacer marginVertical={8} />
         <StyledHeader
@@ -57,7 +56,7 @@ const Header = () => {
           paddingVertical={8}
           statusProps={{ translucent: false }}
 				>
-          <RenderHeader title={'Testing'} leftIcon rightIcon />
+          <SharedHeader title={'Testing'} leftIcon rightIcon />
         </StyledHeader>
         <StyledSpacer marginVertical={8} />
         <StyledHeader
@@ -66,7 +65,7 @@ const Header = () => {
           paddingVertical={8}
           statusProps={{ translucent: false }}
 				>
-          <RenderHeader leftIcon centerTitle='Testing' rightIcon />
+          <SharedHeader leftIcon centerTitle='Testing' rightIcon />
         </StyledHeader>
       </YStack>
     </StyledSafeAreaView>

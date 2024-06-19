@@ -7,7 +7,7 @@ import { StyledSpacer } from '../package/spacer'
 import { useNavigation } from '@react-navigation/native'
 import { StyledCycle } from '../package/cycle'
 
-const RenderHeader = ({
+const SharedHeader = ({
 	leftIcon = false,
 	title,
 	reload = false,
@@ -18,7 +18,7 @@ const RenderHeader = ({
   const navigate = useNavigation()
   return (
     <XStack
-      flex={1}   
+      flex={1}
       alignItems='center'
       paddingHorizontal={8}
       paddingVertical={8}
@@ -46,7 +46,8 @@ const RenderHeader = ({
       <StyledText
         color={theme.colors.gray[800]}
         fontWeight={theme.fontWeight.normal}
-        fontSize={theme.fontSize.normal}>
+        fontSize={theme.fontSize.normal}
+				>
         {title}
       </StyledText>}
       <StyledSpacer flex={1} />
@@ -54,7 +55,8 @@ const RenderHeader = ({
       <StyledText
         color={theme.colors.gray[800]}
         fontWeight={theme.fontWeight.normal}
-        fontSize={theme.fontSize.normal}>
+        fontSize={theme.fontSize.normal}
+				>
         {centerTitle}
       </StyledText>}
       <StyledSpacer flex={1} />
@@ -71,4 +73,4 @@ const RenderHeader = ({
   )
 }
 
-export default RenderHeader
+export default SharedHeader

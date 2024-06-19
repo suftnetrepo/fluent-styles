@@ -35,7 +35,7 @@ const Home = () => {
           </StyledCycle>
           <StyledSpacer marginVertical={8} />
           <StyledText
-            fontFamily ={fontStyles.OpenSansRegular}
+            fontFamily={fontStyles.OpenSansRegular}
             color={theme.colors.gray[800]}
             fontWeight={theme.fontWeight.normal}
             fontSize={theme.fontSize.normal}
@@ -50,7 +50,7 @@ const Home = () => {
   return (
     <StyledSafeAreaView backgroundColor={theme.colors.gray[200]}>
       <StyledHeader
-        backgroundColor={theme.colors.gray[1]}       
+        backgroundColor={theme.colors.gray[1]}
         statusProps={{ translucent: false }}
 			>
         <RenderHeader title={'Samples'} />
@@ -63,7 +63,15 @@ const Home = () => {
           <StyledSpacer marginHorizontal={4} />
           <RenderButton title={'Text'} icon={'note'} screen='text' />
           <StyledSpacer marginHorizontal={4} />
-          <RenderButton title={'Card'} icon={'outbox'} />
+          <RenderButton title={'Button'} icon={'outbox'} screen='button' />
+        </XStack>
+        <StyledSpacer marginVertical={4} />
+        <XStack justifyContent='flex-start' alignItems='flex-start'>
+          <RenderButton title='Image' icon={'headset'} screen={'image'} />
+          <StyledSpacer marginHorizontal={4} />
+          <RenderButton title={'Card'} icon={'note'} screen={'card'} />
+          <StyledSpacer marginHorizontal={4} />
+          <RenderButton title={'Checkbox'} icon={'outbox'} />
         </XStack>
       </YStack>
     </StyledSafeAreaView>

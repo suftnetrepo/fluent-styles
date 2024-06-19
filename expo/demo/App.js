@@ -7,18 +7,11 @@ import * as SplashScreen from 'expo-splash-screen';
 import Home from './screen/home';
 import Header from './screen/header';
 import Text from './screen/text';
+import Button from './screen/button'
+import Image from './screen/image';
+import Card from './screen/card';
 
 const Stack = createStackNavigator();
-
-function Navigator() {
-  return (
-    <Stack.Navigator initialRouteName="home" screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="home" component={Home} />
-      <Stack.Screen name="header" component={Header} />
-      <Stack.Screen name="text" component={Text} />
-    </Stack.Navigator>
-  );
-}
 
 export const useFonts = async () => {
   await Font.loadAsync({
@@ -27,6 +20,19 @@ export const useFonts = async () => {
     'OpenSans-Italic': require('./assets/fonts/Open_Sans/OpenSans-Italic.ttf'),   
   });
 };
+
+function Navigator() {
+  return (
+    <Stack.Navigator initialRouteName="home" screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="home" component={Home} />
+      <Stack.Screen name="header" component={Header} />
+      <Stack.Screen name="text" component={Text} />
+      <Stack.Screen name="button" component={Button} />
+      <Stack.Screen name="image" component={Image} />
+      <Stack.Screen name="card" component={Card} />
+    </Stack.Navigator>
+  );
+}
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);

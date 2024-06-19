@@ -1,4 +1,4 @@
-export * from "../../expo/demo/package/styled";
+export * from "../expo/demo/package/styled";
 export * from "./packages/button";
 export * from "./packages/spacer";
 export * from "./packages/stack";

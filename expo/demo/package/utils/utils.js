@@ -1,4 +1,4 @@
-import { Platform } from "react-native"
+import { Platform, Dimensions } from "react-native"
 import { theme } from "../theme"
 import React from "react";
 
@@ -100,5 +100,10 @@ class ErrorBoundary extends React.Component {
         return this.props.children;
     }
 }
+
+export const isIOS = Platform.OS === "ios";
+export const isAndroid = !isIOS;
+export const windowWidth = Dimensions.get("window").width;
+export const windowHeight = Dimensions.get("window").height;
 
 export { shadow, ErrorBoundary }

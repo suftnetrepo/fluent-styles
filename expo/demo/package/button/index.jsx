@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pressable, TouchableOpacity } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 import { styled } from '../styled'
 import { theme } from '../theme'
 
@@ -26,6 +26,9 @@ const Button = styled(TouchableOpacity, {
     width: size => ({
       width: size
     }),
+    height: size => ({
+      height: size
+    }),
     backgroundColor: color => ({
       backgroundColor: color
     }),
@@ -35,6 +38,17 @@ const Button = styled(TouchableOpacity, {
         borderWidth: 0,
         borderRadius: 0,
         backgroundColor: theme.colors.transparent
+      }
+    },
+    selected: {
+      true: {
+        borderColor: theme.colors.cyan[500],
+        backgroundColor: theme.colors.cyan[500],
+        borderWidth: 0
+      },
+      false: {
+        borderColor: theme.colors.gray[300],
+        borderWidth: 0
       }
     }
   }
