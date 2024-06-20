@@ -5,6 +5,7 @@ import { theme } from "../theme";
 const YStack = styled(View, {
     base: {
         flexDirection: 'column',
+        position: 'relative'  
     },
     variants: {
         transparent: {
@@ -16,7 +17,8 @@ const YStack = styled(View, {
 })
 const XStack = styled(View, {
     base: {
-        flexDirection: 'row',    
+        flexDirection: 'row',  
+        position:'relative'  
     },
     variants: {
         transparent: {
@@ -24,7 +26,12 @@ const XStack = styled(View, {
                 backgroundColor: theme.colors.transparent,
             }
         }
-    }
+    },
+    position: {
+        true: {
+            position: 'absolute'
+        }
+    },
 })
 
 export { XStack, YStack }

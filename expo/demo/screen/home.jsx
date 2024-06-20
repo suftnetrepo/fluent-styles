@@ -80,10 +80,14 @@ const Home = () => {
         <StyledSpacer marginVertical={4} />
         <XStack justifyContent='flex-start' alignItems='flex-start'>
           <RenderButton
-            title='Radio Button'
+            title='Radio'
             icon={'headset'}
             screen={'radio-button'}
 					/>
+          <StyledSpacer marginHorizontal={4} />
+          <RenderButton title='Badge' icon={'headset'} screen={'badge'} />
+          <StyledSpacer marginHorizontal={4} />
+          <RenderButton title='Input' icon={'headset'} screen={'input'} />
         </XStack>
       </YStack>
     </StyledSafeAreaView>

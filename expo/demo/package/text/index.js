@@ -34,10 +34,18 @@ const StyledText = styled(Text, {
                 color: theme.colors.gray[800]
             }
         },       
-        fontFamily: (font) => ({
-            fontFamily: font || fontStyles.OpenSansRegular
-        })
-
+        fontFamily: (font) => {
+            if (!font) return
+            return {
+                fontFamily: font
+            }
+        },
+        textAlign: (align) => {
+            if (!align) return
+            return {
+                textAlign: align
+            }
+        }
     }
 })
 

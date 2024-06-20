@@ -12,6 +12,8 @@ import Image from './screen/image';
 import Card from './screen/card';
 import CheckBox from './screen/checkbox';
 import RadioButton from './screen/radioButton';
+import Badge from './screen/badges';
+import Input from './screen/input';
 
 const Stack = createStackNavigator();
 
@@ -34,6 +36,8 @@ function Navigator() {
       <Stack.Screen name="card" component={Card} />
       <Stack.Screen name="checkbox" component={CheckBox} />
       <Stack.Screen name="radio-button" component={RadioButton} />
+      <Stack.Screen name="badge" component={Badge} />
+      <Stack.Screen name="input" component={Input} />
     </Stack.Navigator>
   );
 }
