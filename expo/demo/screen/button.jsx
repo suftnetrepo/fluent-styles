@@ -399,6 +399,7 @@ const Button = () => {
                             color: theme.colors.gray[1]
                         }}
                     />
+
                 </XStack>
             </YStack>
         </StyledSafeAreaView>

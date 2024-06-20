@@ -10,6 +10,8 @@ import Text from './screen/text';
 import Button from './screen/button'
 import Image from './screen/image';
 import Card from './screen/card';
+import CheckBox from './screen/checkbox';
+import RadioButton from './screen/radioButton';
 
 const Stack = createStackNavigator();
 
@@ -30,6 +32,8 @@ function Navigator() {
       <Stack.Screen name="button" component={Button} />
       <Stack.Screen name="image" component={Image} />
       <Stack.Screen name="card" component={Card} />
+      <Stack.Screen name="checkbox" component={CheckBox} />
+      <Stack.Screen name="radio-button" component={RadioButton} />
     </Stack.Navigator>
   );
 }

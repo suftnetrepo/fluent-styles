@@ -42,8 +42,6 @@ const StyledImage = ({ imageUrl, local = false, ...rest }) => {
   uri: imageUrl
 }
 		: require('../../assets/img/doctor.png')
-
-  console.log('.....................', url)
   return <Image source={local ? imageUrl : url} {...rest} />
 }
 
