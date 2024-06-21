@@ -23,15 +23,7 @@ const Header = () => {
         alignItems='flex-start'
         marginHorizontal={8}
 			>
-        <StyledSpacer marginVertical={8} />
-        <StyledText
-          color={theme.colors.gray[400]}
-          fontWeight={theme.fontWeight.normal}
-          fontSize={theme.fontSize.normal}
-				>
-					Sample Headers
-				</StyledText>
-        <StyledSpacer marginVertical={8} />
+        <StyledSpacer marginVertical={8} />        
         <StyledHeader
           borderRadius={8}
           backgroundColor={theme.colors.gray[1]}
@@ -56,7 +48,14 @@ const Header = () => {
           paddingVertical={8}
           statusProps={{ translucent: false }}
 				>
-          <SharedHeader title={'Testing'} leftIcon rightIcon />
+          <SharedHeader
+            title={'Testing'}
+            leftIcon
+            rightIcon
+            icon='menu'
+            borderColor={theme.colors.gray[1]}
+            backgroundColor={theme.colors.gray[1]}
+					/>
         </StyledHeader>
         <StyledSpacer marginVertical={8} />
         <StyledHeader
@@ -65,7 +64,14 @@ const Header = () => {
           paddingVertical={8}
           statusProps={{ translucent: false }}
 				>
-          <SharedHeader leftIcon centerTitle='Testing' rightIcon />
+          <SharedHeader
+            leftIcon
+            centerTitle='Testing'
+            rightIcon
+            icon='menu'
+            borderColor={theme.colors.gray[1]}
+            backgroundColor={theme.colors.gray[1]}
+					/>
         </StyledHeader>
       </YStack>
     </StyledSafeAreaView>

@@ -39,69 +39,102 @@ const Text = () => {
             </StyledHeader>
             <YStack flex={1} marginHorizontal={8}>
                 <StyledSpacer marginVertical={2} />
-                <StyledSeparator left={
-                    <StyledText fontWeight={theme.fontWeight.normal} color={theme.colors.gray[600]} fontSize={theme.fontSize.large} >Font Family</StyledText>} />
+                <StyledSeparator
+                    left={
+                        <StyledText
+                            fontWeight={theme.fontWeight.normal}
+                            color={theme.colors.gray[600]}
+                            fontSize={theme.fontSize.large}
+                        >
+                            Font Family
+                        </StyledText>
+                    }
+                />
                 {fonts.map((item, index) =>
-                    <>
-                        <XStack key={index} justifyContent='flex-start' alignItems='center'>
-                            <StyledText
-                                flex={1}
-                                fontFamily={item.font}
-                                color={theme.colors.gray[800]}
-                                fontWeight={theme.fontWeight.normal}
-                                fontSize={theme.fontSize.normal}
-                                backgroundColor={theme.colors.gray[1]}
-                                paddingVertical={8}
-                                paddingHorizontal={8}
-                            >
-                                Lorem Ipsum is simply dummy
-                            </StyledText>
-                        </XStack>
-                        <StyledSpacer marginVertical={4} />
-                    </>
+                    <XStack
+                        key={`${index}-font-family`}
+                        justifyContent='flex-start'
+                        alignItems='center'
+                    >
+                        <StyledText
+                            flex={1}
+                            fontFamily={item.font}
+                            color={theme.colors.gray[800]}
+                            fontWeight={theme.fontWeight.normal}
+                            fontSize={theme.fontSize.normal}
+                            backgroundColor={theme.colors.gray[1]}
+                            paddingVertical={8}
+                            paddingHorizontal={8}
+                            marginBottom={4}
+                        >
+                            Lorem Ipsum is simply dummy
+                        </StyledText>
+                    </XStack>
                 )}
 
-                <StyledSeparator left={
-                    <StyledText fontWeight={theme.fontWeight.normal} color={theme.colors.gray[600]} fontSize={theme.fontSize.large} >Font Size</StyledText>} />
+                <StyledSeparator
+                    left={
+                        <StyledText
+                            fontWeight={theme.fontWeight.normal}
+                            color={theme.colors.gray[600]}
+                            fontSize={theme.fontSize.large}
+                        >
+                            Font Size
+                        </StyledText>
+                    }
+                />
                 {fonts.map((item, index) =>
-                    <>
-                        <XStack key={index} justifyContent='flex-start' alignItems='center'>
-                            <StyledText
-                                flex={1}
-                                fontFamily={fontStyles.OpenSansRegular}
-                                color={theme.colors.gray[800]}
-                                fontWeight={theme.fontWeight.normal}
-                                fontSize={item.size}
-                                backgroundColor={theme.colors.gray[1]}
-                                paddingVertical={8}
-                                paddingHorizontal={8}
-                            >
-                                Lorem Ipsum is simply dummy
-                            </StyledText>
-                        </XStack>
-                        <StyledSpacer marginVertical={4} />
-                    </>
+                    <XStack
+                        key={`${index}-font-size`}
+                        justifyContent='flex-start'
+                        alignItems='center'
+                    >
+                        <StyledText
+                            flex={1}
+                            fontFamily={fontStyles.OpenSansRegular}
+                            color={theme.colors.gray[800]}
+                            fontWeight={theme.fontWeight.normal}
+                            fontSize={item.size}
+                            backgroundColor={theme.colors.gray[1]}
+                            paddingVertical={8}
+                            paddingHorizontal={8}
+                            marginBottom={4}
+                        >
+                            Lorem Ipsum is simply dummy
+                        </StyledText>
+                    </XStack>
                 )}
-                <StyledSeparator left={
-                    <StyledText fontWeight={theme.fontWeight.normal} color={theme.colors.gray[600]} fontSize={theme.fontSize.large} >Color</StyledText>} />
+                <StyledSeparator
+                    left={
+                        <StyledText
+                            fontWeight={theme.fontWeight.normal}
+                            color={theme.colors.gray[600]}
+                            fontSize={theme.fontSize.large}
+                        >
+                            Color
+                        </StyledText>
+                    }
+                />
                 {fonts.map((item, index) =>
-                    <>
-                        <XStack key={index} justifyContent='flex-start' alignItems='center'>
-                            <StyledText
-                                flex={1}
-                                fontFamily={fontStyles.OpenSansRegular}
-                                color={item.color}
-                                fontWeight={theme.fontWeight.bold}
-                                fontSize={theme.fontSize.normal}
-                                backgroundColor={theme.colors.gray[1]}
-                                paddingVertical={8}
-                                paddingHorizontal={8}
-                            >
-                                Lorem Ipsum is simply dummy
-                            </StyledText>
-                        </XStack>
-                        <StyledSpacer marginVertical={4} />
-                    </>
+                    <XStack
+                        key={`${index}-color`}
+                        justifyContent='flex-start'
+                        alignItems='center'
+                    >
+                        <StyledText
+                            flex={1}
+                            fontFamily={fontStyles.OpenSansRegular}
+                            color={item.color}
+                            fontWeight={theme.fontWeight.bold}
+                            fontSize={theme.fontSize.normal}
+                            backgroundColor={theme.colors.gray[1]}
+                            paddingVertical={8}
+                            paddingHorizontal={8}
+                            marginBottom={4}
+                        >
+                            Lorem Ipsum is simply dummy
+                        </StyledText>
+                    </XStack>
                 )}
             </YStack>
         </StyledSafeAreaView>

@@ -13,7 +13,9 @@ import Card from './screen/card';
 import CheckBox from './screen/checkbox';
 import RadioButton from './screen/radioButton';
 import Badge from './screen/badges';
-import Input from './screen/input';
+import Form from './screen/form';
+import Dialog from './screen/dialog';
+import Switch from './screen/switch';
 
 const Stack = createStackNavigator();
 
@@ -37,7 +39,9 @@ function Navigator() {
       <Stack.Screen name="checkbox" component={CheckBox} />
       <Stack.Screen name="radio-button" component={RadioButton} />
       <Stack.Screen name="badge" component={Badge} />
-      <Stack.Screen name="input" component={Input} />
+      <Stack.Screen name="form" component={Form} />
+      <Stack.Screen name="switch" component={Switch} />
+      <Stack.Screen name="dialog" component={Dialog} />
     </Stack.Navigator>
   );
 }

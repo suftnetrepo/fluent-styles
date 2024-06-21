@@ -55,9 +55,8 @@ const Home = () => {
 			>
         <RenderHeader title={'Samples'} />
       </StyledHeader>
-      <YStack flex={1} paddingHorizontal={16}>
-        <StyledSpacer marginVertical={8} />
-
+      <YStack flex={1} paddingHorizontal={8}>
+        <StyledSpacer marginVertical={4} />
         <XStack justifyContent='flex-start' alignItems='flex-start'>
           <RenderButton title='Header' icon={'headset'} screen='header' />
           <StyledSpacer marginHorizontal={4} />
@@ -67,27 +66,37 @@ const Home = () => {
         </XStack>
         <StyledSpacer marginVertical={4} />
         <XStack justifyContent='flex-start' alignItems='flex-start'>
-          <RenderButton title='Image' icon={'headset'} screen={'image'} />
+          <RenderButton title='Image' icon={'image'} screen={'image'} />
           <StyledSpacer marginHorizontal={4} />
-          <RenderButton title={'Card'} icon={'note'} screen={'card'} />
+          <RenderButton title={'Card'} icon={'card-travel'} screen={'card'} />
           <StyledSpacer marginHorizontal={4} />
           <RenderButton
             title={'Checkbox'}
-            icon={'outbox'}
+            icon={'check-box'}
             screen={'checkbox'}
 					/>
         </XStack>
         <StyledSpacer marginVertical={4} />
         <XStack justifyContent='flex-start' alignItems='flex-start'>
+          <RenderButton title='Radio' icon={'radio'} screen={'radio-button'} />
+          <StyledSpacer marginHorizontal={4} />
+          <RenderButton title='Badge' icon={'badge'} screen={'badge'} />
+          <StyledSpacer marginHorizontal={4} />
+          <RenderButton title='Form' icon={'dynamic-form'} screen={'form'} />
+        </XStack>
+        <StyledSpacer marginVertical={4} />
+        <XStack justifyContent='flex-start' alignItems='flex-start'>
           <RenderButton
-            title='Radio'
-            icon={'headset'}
-            screen={'radio-button'}
+            title='Dialog'
+            icon={'sensor-window'}
+            screen={'dialog'}
 					/>
           <StyledSpacer marginHorizontal={4} />
-          <RenderButton title='Badge' icon={'headset'} screen={'badge'} />
-          <StyledSpacer marginHorizontal={4} />
-          <RenderButton title='Input' icon={'headset'} screen={'input'} />
+          <RenderButton
+            title='Switch'
+            icon={'switch-account'}
+            screen={'switch'}
+					/>
         </XStack>
       </YStack>
     </StyledSafeAreaView>

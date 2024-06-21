@@ -2,8 +2,8 @@
   "name": "fluent-styles",
   "version": "1.0.0",
   "description": "Develop different styled versions of UI components.",
-  "main": "lib/module/assets/index.js",
-  "module": "lib/module/assets/index.js",
+  "main": "lib/module/index.js",
+  "module": "lib/module/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/suftnetrepo/fluent-styles.git"
@@ -22,7 +22,9 @@
   "homepage": "https://github.com/suftnetrepo/fluent-styles#readme",
   "dependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-dropdown-picker": "^5.4.6",
+    "react-native-vector-icons": "^9.2.0"
   },
   "scripts": {
     "test": "jest",
@@ -54,8 +56,5 @@
       "module"
     ]
   },
-  "packageManager": "yarn@3.6.4",
-  "resolutions": {
-    "demo": "portal:/E:/Git/React Native/package/styled/expo/demo"
-  }
+  "packageManager": "yarn@3.6.4"  
 }

@@ -9,11 +9,13 @@ import { StyledCycle } from '../package/cycle'
 
 const SharedHeader = ({
 	leftIcon = false,
+	icon = 'arrow-back',
 	title,
 	reload = false,
 	screen,
 	rightIcon,
-	centerTitle
+	centerTitle,
+	...rest
 }) => {
   const navigate = useNavigation()
   return (
@@ -27,9 +29,10 @@ const SharedHeader = ({
       <StyledCycle
         borderColor={theme.colors.gray[400]}
         backgroundColor={theme.colors.gray[1]}
+        {...rest}
 				>
         <Icon
-          name={'arrow-back'}
+          name={icon}
           size={30}
           color={theme.colors.gray[700]}
           onPress={() => {
