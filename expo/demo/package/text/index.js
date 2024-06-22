@@ -6,7 +6,7 @@ const StyledText = styled(Text, {
     base: {
         fontSize: theme.fontSize.normal,
         color: theme.colors.gray[800],
-        fontWeight: theme.fontWeight.normal   
+        fontWeight: theme.fontWeight.normal      
     },
     variants: {
         fontWeight: (size) => ({

@@ -6,7 +6,6 @@ import { theme } from '../theme'
 import { YStack, XStack } from '../stack'
 import { styled } from '../styled'
 import { StyledCycle } from '../cycle'
-import { useNavigation } from '@react-navigation/native'
 import { StyledText } from '../text'
 import { StyledSpacer } from '../spacer'
 
@@ -38,28 +37,29 @@ const StyledHeader = ({ statusProps, ...rest }) => {
   )
 }
 
-const Title = ({ title, icon =false, cycleProps, reload = false, screen, ...rest }) => {
-  const navigate = useNavigation()
+const Title = ({ navigator, title, icon = false, cycleProps, reload = false, screen, ...rest }) => {
 
   return (
     <XStack justifyContent='flex-start' alignItems='center' flex={1} paddingHorizontal={8}
-        paddingVertical={8} {...rest}>
+      paddingVertical={8} {...rest}>
       {
         icon && (
           <StyledCycle  {...cycleProps}>
-            <Icon
-              name={'arrow-back'}
-              size={30}
-              color={theme.colors.gray[700]}
-              onPress={() => {
-                if (reload && screen) {
-                  navigate.replace(screen)
-                } else {
-                  navigate.goBack()
-                }
-              }}
-            />
-            <StyledSpacer marginHorizontal={4} />
+            <>
+              <Icon
+                name={'arrow-back'}
+                size={30}
+                color={theme.colors.gray[700]}
+                onPress={() => {
+                  if (reload && screen && navigator) {
+                    navigator.replace(screen)
+                  } else {
+                    navigator.goBack()
+                  }
+                }}
+              />
+              <StyledSpacer marginHorizontal={4} />
+            </>
           </StyledCycle>
         )
       }
