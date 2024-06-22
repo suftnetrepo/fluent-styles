@@ -5,7 +5,7 @@ import { theme } from '../package/theme'
 import { StyledSpacer } from '../package/spacer'
 import { StyledHeader } from '../package/header'
 import SharedHeader from '../shared/header'
-import { StyledInput, StyledMultiInput } from '../package/input'
+import { StyledInput, StyledMultiInput } from '../package/form'
 import { StyledDropdown, StyledMultiDropdown } from '../package/dropdown'
 import { StyledScrollView } from '../package/scrollView'
 

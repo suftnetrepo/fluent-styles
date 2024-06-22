@@ -24,6 +24,7 @@ const Badge = () => {
         statusProps={{ translucent: false }}
 			>
         <SharedHeader title={'Badge'} leftIcon />
+        
       </StyledHeader>
       <YStack flex={1} marginHorizontal={8}>
         <StyledSpacer marginVertical={2} />

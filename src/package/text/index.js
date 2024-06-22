@@ -1,14 +1,12 @@
 import { Text } from "react-native";
 import { styled } from "../styled";
 import { theme } from "../theme";
-import { fontStyles } from "../../shared/fontStyles";
 
 const StyledText = styled(Text, {
     base: {
         fontSize: theme.fontSize.normal,
         color: theme.colors.gray[800],
-        fontWeight: theme.fontWeight.normal,
-        fontFamily: fontStyles.OpenSansRegular
+        fontWeight: theme.fontWeight.normal      
     },
     variants: {
         fontWeight: (size) => ({

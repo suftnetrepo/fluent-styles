@@ -1,7 +1,7 @@
 import React from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { StyledText } from '../package/text'
-import { YStack, XStack } from '../package/stack'
+import { XStack } from '../package/stack'
 import { theme } from '../package/theme'
 import { StyledSpacer } from '../package/spacer'
 import { useNavigation } from '@react-navigation/native'

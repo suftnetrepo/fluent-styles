@@ -16,13 +16,17 @@
     "variants",
     "styling"
   ],
+  "files": [
+    "lib",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "bugs": {
     "url": "https://github.com/suftnetrepo/fluent-styles/issues"
   },
   "homepage": "https://github.com/suftnetrepo/fluent-styles#readme",
   "dependencies": {
-    "react": "*",
-    "react-native": "*",
     "react-native-dropdown-picker": "^5.4.6",
     "react-native-vector-icons": "^9.2.0"
   },
@@ -32,8 +36,8 @@
     "release": "release-it"
   },
   "peerDependencies": {
-    "react": "*",
-    "react-native": "*"
+    "react": ">=16.8.0",
+    "react-native": ">=0.60.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-class-properties": "^7.24.7",
@@ -56,5 +60,5 @@
       "module"
     ]
   },
-  "packageManager": "yarn@3.6.4"  
+  "packageManager": "yarn@3.6.4"
 }

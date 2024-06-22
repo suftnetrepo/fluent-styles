@@ -1,0 +1,16 @@
+# Ignore all node_modules directories
+node_modules
+
+# Ignore build directories
+build
+expo
+
+# Ignore config files
+*.config.js
+
+# Ignore test directories
+.yarn
+.vscode
+
+# Ignore specific files
+

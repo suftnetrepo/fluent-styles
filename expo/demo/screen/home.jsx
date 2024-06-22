@@ -51,9 +51,9 @@ const Home = () => {
     <StyledSafeAreaView backgroundColor={theme.colors.gray[200]}>
       <StyledHeader
         backgroundColor={theme.colors.gray[1]}
-        statusProps={{ translucent: false }}
+        statusProps={{ translucent: false }}      
 			>
-        <RenderHeader title={'Samples'} />
+        <StyledHeader.Title title={'Samples'} icon />
       </StyledHeader>
       <YStack flex={1} paddingHorizontal={8}>
         <StyledSpacer marginVertical={4} />
