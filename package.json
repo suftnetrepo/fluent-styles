@@ -24,6 +24,10 @@
     "react-native-dropdown-picker": "^5.4.6",
     "react-native-vector-icons": "^9.2.0"
   },
+  "files": [
+    "src",
+    "lib"   
+  ],
   "scripts": {
     "test": "jest",
     "build": "bob build",
