@@ -1,11 +1,13 @@
 import React, { forwardRef } from "react";
 
+// @ts-ignore
 const styled = (Component, { base, variants } = {}) => {
   return forwardRef((props, ref) => {
     const styles = { ...(base || {}) };
     const options = props;
 
     Object.keys(variants || {}).forEach((category) => {
+      // @ts-ignore
       const variantSelected = options[category];
       const variantValue = variants[category];
 
@@ -39,7 +41,9 @@ const styled = (Component, { base, variants } = {}) => {
   });
 };
 
+// @ts-ignore
 function getNestedVariant(object, path) {
+  // @ts-ignore
   return path.split(".").reduce((acc, part) => acc && acc[part], object);
 }
 

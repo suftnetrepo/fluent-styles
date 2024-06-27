@@ -1,16 +1,16 @@
-# Ignore all node_modules directories
-node_modules
-
-# Ignore build directories
-build
-expo
-
-# Ignore config files
-*.config.js
-
-# Ignore test directories
-.yarn
-.vscode
-
-# Ignore specific files
-
+# .npmignore
+node_modules/
+src/
+.vscode/
+.yarn/
+expo/
+.yarnrc.yml
+babel.config.js
+jest.config.js
+tsconfig.json
+README.md
+yarn-error.log
+yarn.lock
+.gitignore
+.npmignore
+package-lock.json
