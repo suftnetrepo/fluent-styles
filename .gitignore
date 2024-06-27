@@ -26,3 +26,6 @@ yarn-error.log
 lib/
 *.zip
 *.tgz
+.yarn/releases/yarn-3.6.4.cjs
+.yarn/install-state.gz
+expo/demo/.yarn/install-state.gz
