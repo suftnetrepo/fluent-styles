@@ -16,7 +16,7 @@ const variants = {
     }
     return { borderRadius: size }
   },
-  flex: size => {
+  flex: (size = 0) => {   
     if (!isValidNumber(size)) {
       throw new Error('Invalid flex value')
     }
@@ -30,19 +30,22 @@ const variants = {
     if (!size) return
     return { height: size }
   },
-  borderWidth: size => {
+  borderWidth: (size = 1) => {
     if (!isValidNumber(size)) {
       throw new Error('Invalid borderWidth value')
     }
     return { borderWidth: size }
   },
   borderColor: color => {
+    if (!color) return
     if (!isValidColor(color)) {
-      throw new Error('Invalid color value')
+      throw new Error('Invalid backgroundColor value')
     }
     return { borderColor: color }
   },
   resizeMode: mode => {
+    if (!mode) return
+
     const validModes = ['cover', 'contain', 'stretch', 'repeat', 'center']
     if (!validModes.includes(mode)) {
       throw new Error('Invalid mode value')

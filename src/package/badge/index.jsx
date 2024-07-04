@@ -57,6 +57,7 @@ const Badge = styled(Text, {
             return { textAlign: align }
         },
         borderColor: color => {
+            if (!color) return
             if (!isValidColor(color)) {
                 throw new Error('Invalid color value')
             }
@@ -69,6 +70,7 @@ const Badge = styled(Text, {
             return { borderRadius: size }
         },
         backgroundColor: color => {
+            if (!color) return
             if (!isValidColor(color)) {
                 throw new Error('Invalid color value')
             }

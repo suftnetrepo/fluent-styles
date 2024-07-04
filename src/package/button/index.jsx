@@ -16,6 +16,7 @@ const Button = styled(TouchableOpacity, {
   },
   variants: {
     borderColor: color => {
+      if (!color) return
       if (!isValidColor(color)) {
         throw new Error('Invalid color value')
       }
@@ -27,7 +28,7 @@ const Button = styled(TouchableOpacity, {
       }
       return { borderRadius: size }
     },
-    flex: size => {
+    flex: (size = 0) => {
       if (!isValidNumber(size)) {
         throw new Error('Invalid flex value')
       }
@@ -42,6 +43,7 @@ const Button = styled(TouchableOpacity, {
       return { height: size }
     },
     backgroundColor: color => {
+      if (!color) return
       if (!isValidColor(color)) {
         throw new Error('Invalid backgroundColor value')
       }
