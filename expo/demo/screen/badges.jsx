@@ -1,19 +1,19 @@
 import React from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import { StyledSafeAreaView } from '../package/safeAreaView'
-import { StyledText } from '../package/text'
-import { YStack, XStack } from '../package/stack'
-import { theme } from '../package/theme'
-import { StyledSpacer } from '../package/spacer'
-import { StyledHeader } from '../package/header'
+import { StyledSafeAreaView } from '../../../src/package/safeAreaView'
+import { StyledText } from '../../../src/package/text'
+import { YStack, XStack } from '../../../src/package/stack'
+import { theme } from '../../../src/package/theme'
+import { StyledSpacer } from '../../../src/package/spacer'
+import { StyledHeader } from '../../../src/package/header'
 import SharedHeader from '../shared/header'
 import { fontStyles } from '../shared/fontStyles'
-import { StyledSeparator } from '../package/separator'
+import { StyledSeparator } from '../../../src/package/separator'
 import {
 	StyledBadge,
 	StyledBadgeWithIcon,
 	StyledBadgeIcon
-} from '../package/badge'
+} from '../../../src/package/badge'
 
 const Badge = () => {
   return (
@@ -24,7 +24,6 @@ const Badge = () => {
         statusProps={{ translucent: false }}
 			>
         <SharedHeader title={'Badge'} leftIcon />
-        
       </StyledHeader>
       <YStack flex={1} marginHorizontal={8}>
         <StyledSpacer marginVertical={2} />

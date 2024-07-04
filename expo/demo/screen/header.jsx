@@ -1,10 +1,9 @@
 import React from 'react'
-import { StyledSafeAreaView } from '../package/safeAreaView'
-import { StyledText } from '../package/text'
-import { YStack } from '../package/stack'
-import { theme } from '../package/theme'
-import { StyledSpacer } from '../package/spacer'
-import { StyledHeader } from '../package/header'
+import { StyledSafeAreaView } from '../../../src/package/safeAreaView'
+import { YStack } from '../../../src/package/stack'
+import { theme } from '../../../src/package/theme'
+import { StyledSpacer } from '../../../src/package/spacer'
+import { StyledHeader } from '../../../src/package/header'
 import SharedHeader from '../shared/header'
 
 const Header = () => {
