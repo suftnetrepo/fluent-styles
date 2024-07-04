@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import { StyledSafeAreaView } from '../../../src/package/safeAreaView'
-import { StyledText } from '../../../src/package/text'
-import { YStack } from '../../../src/package/stack'
-import { theme } from '../../../src/package/theme'
-import { StyledHeader } from '../../../src/package/header'
+import { StyledSafeAreaView } from '../package/safeAreaView'
+import { StyledText } from '../package/text'
+import { YStack } from '../package/stack'
+import { theme } from '../package/theme'
+import { StyledHeader } from '../package/header'
 import SharedHeader from '../shared/header'
-import { StyledInput } from '../../../src/package/form'
-import { StyledButton } from '../../../src/package/button'
-import { validate } from '../../../src'
+import { StyledInput } from '../package/form'
+import { StyledButton } from '../package/button'
 import { formValidatorRules } from '../utils/validatorRules'
+import { validate } from '../utils/validator'
 
 const WorkPad = () => {
   const [errorMessages, setErrorMessages] = useState({})

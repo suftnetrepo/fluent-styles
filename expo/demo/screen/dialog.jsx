@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
-import { StyledSafeAreaView } from '../../../src/package/safeAreaView'
-import { StyledText } from '../../../src/package/text'
-import { YStack, XStack } from '../../../src/package/stack'
-import { theme } from '../../../src/package/theme'
-import { StyledSpacer } from '../../../src/package/spacer'
-import { StyledHeader } from '../../../src/package/header'
+import { StyledSafeAreaView } from '../package/safeAreaView'
+import { StyledText } from '../package/text'
+import { YStack, XStack } from '../package/stack'
+import { theme } from '../package/theme'
+import { StyledSpacer } from '../package/spacer'
+import { StyledHeader } from '../package/header'
 import SharedHeader from '../shared/header'
 import { fontStyles } from '../shared/fontStyles'
-import { StyledButton } from '../../../src/package/button'
+import { StyledButton } from '../package/button'
 import {
 	StyledConfirmDialog,
 	StyledOkDialog,
 	StyledDialog
-} from '../../../src/package/dialog'
-import { StyledImage } from '../../../src/package/image'
+} from '../package/dialog'
+import { StyledImage } from '../package/image'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
 const Switch = () => {
@@ -128,7 +128,7 @@ const Switch = () => {
 			>
         <SharedHeader title={'Dialog'} leftIcon />
       </StyledHeader>
-      <YStack flex={1} backgroundColor={theme.colors.gray[200]}>
+      <YStack flex={1} backgroundColor={theme.colors.gray[1]}>
         <StyledSpacer marginVertical={8} />
         <XStack
           justifyContent='space-between'

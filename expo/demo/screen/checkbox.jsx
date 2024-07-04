@@ -1,13 +1,13 @@
 import React from 'react'
-import { StyledSafeAreaView } from '../../../src/package/safeAreaView'
-import { StyledText } from '../../../src/package/text'
-import { YStack, XStack } from '../../../src/package/stack'
-import { theme } from '../../../src/package/theme'
-import { StyledSpacer } from '../../../src/package/spacer'
-import { StyledHeader } from '../../../src/package/header'
+import { StyledSafeAreaView } from '../package/safeAreaView'
+import { StyledText } from '../package/text'
+import { YStack, XStack } from '../package/stack'
+import { theme } from '../package/theme'
+import { StyledSpacer } from '../package/spacer'
+import { StyledHeader } from '../package/header'
 import SharedHeader from '../shared/header'
 import { fontStyles } from '../shared/fontStyles'
-import { StyledCheckBox } from '../../../src/package/checkBox'
+import { StyledCheckBox } from '../package/checkBox'
 
 const CheckBox = () => {
   return (

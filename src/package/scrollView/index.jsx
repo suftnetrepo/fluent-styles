@@ -1,11 +1,16 @@
 import { ScrollView } from 'react-native'
 import { styled } from '../styled'
+import { isValidColor } from '../utils'
 
-const StyledScrollView = styled(ScrollView, {  
+const StyledScrollView = styled(ScrollView, {
   variants: {
-    backgroundColor: color => ({
-      backgroundColor: color
-    })
+    backgroundColor: color => {
+      if (!color) return
+      if (!isValidColor(color)) {
+        throw new Error('Invalid backgroundColor value')
+      }
+      return { backgroundColor: color }
+    }
   }
 })
 

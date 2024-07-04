@@ -1,37 +1,46 @@
-import { View } from "react-native";
-import { styled } from "../styled";
-import { theme } from "../theme";
+import { View } from 'react-native'
+import { styled } from '../styled'
+import { theme } from '../theme'
 
 const YStack = styled(View, {
-    base: {
-        flexDirection: 'column',
-        position: 'relative'  
+  base: {
+    flexDirection: 'column'
+  },
+  variants: {
+    transparent: {
+      true: {
+        backgroundColor: theme.colors.transparent
+      }
     },
-    variants: {
-        transparent: {
-            true: {
-                backgroundColor: theme.colors.transparent,
-            }
-        }
-    }   
+    relative: {
+      position: 'relative'
+    },
+    absolute: {
+      true: {
+        position: 'absolute'
+      }
+    }
+  }
 })
 const XStack = styled(View, {
-    base: {
-        flexDirection: 'row',  
-        position:'relative'  
-    },
-    variants: {
-        transparent: {
-            true: {
-                backgroundColor: theme.colors.transparent,
-            }
-        }
-    },
-    position: {
-        true: {
-            position: 'absolute'
-        }
-    },
+  base: {
+    flexDirection: 'row'
+  },
+  variants: {
+    transparent: {
+      true: {
+        backgroundColor: theme.colors.transparent
+      }
+    }
+  },
+  relative: {
+    position: 'relative'
+  },
+  absolute: {
+    true: {
+      position: 'absolute'
+    }
+  }
 })
 
 export { XStack, YStack }

@@ -3,8 +3,9 @@ import { theme } from '../theme'
 import React from 'react'
 
 export const isValidColor = value =>
-	/^#[0-9A-F]{6}$/i.test(value) || typeof value === 'string' // Simple hex color validation, expand as needed
-export const isValidNumber = value => typeof value === 'number' && isFinite(value)
+	/^#([0-9A-F]{3}|[0-9A-F]{6}|[0-9A-F]{8})$/i.test(value) 
+export const isValidNumber = value =>
+	typeof value === 'number' && isFinite(value)
 export const isValidString = value =>
 	typeof value === 'string' && value.trim().length > 0
 

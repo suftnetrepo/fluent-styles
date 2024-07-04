@@ -28,7 +28,7 @@ const Button = styled(TouchableOpacity, {
       }
       return { borderRadius: size }
     },
-    flex: (size) => {
+    flex: size => {
       if (!size) return
       if (!isValidNumber(size)) {
         throw new Error('Invalid flex value')
@@ -52,10 +52,10 @@ const Button = styled(TouchableOpacity, {
     },
     link: {
       true: {
-        borderColor: theme.colors.transparent,
+        borderColor: theme.colors.pureTransparent,
         borderWidth: 0,
         borderRadius: 0,
-        backgroundColor: theme.colors.transparent
+        backgroundColor: theme.colors.pureTransparent
       }
     },
     selected: {

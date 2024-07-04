@@ -41,6 +41,7 @@ const StyledConfirmDialog = ({
 	onCancel,
 	onConfirm,
 	transparent = true,
+	dialogProps,
 	...rest
 }) => {
   const [show, setShow] = useState(visible)
@@ -70,7 +71,13 @@ const StyledConfirmDialog = ({
       animationType={animationType}
       {...rest}
 		>
-      <YStack transparent flex={1} justifyContent='center' alignItems='center'>
+      <YStack
+        transparent
+        flex={1}
+        justifyContent='center'
+        alignItems='center'
+        {...dialogProps}
+			>
         <YStack
           width={'90%'}
           borderRadius={8}
@@ -139,6 +146,7 @@ const StyledOkDialog = ({
 	visible = false,
 	animationType = 'fade',
 	transparent = true,
+	dialogProps,
 	...rest
 }) => {
   const [show, setShow] = useState(visible)
@@ -162,7 +170,13 @@ const StyledOkDialog = ({
       animationType={animationType}
       {...rest}
 		>
-      <YStack transparent flex={1} justifyContent='center' alignItems='center'>
+      <YStack
+        transparent
+        flex={1}
+        justifyContent='center'
+        alignItems='center'
+        {...dialogProps}
+			>
         <YStack
           width={'90%'}
           borderRadius={8}

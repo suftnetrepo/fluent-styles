@@ -1,11 +1,11 @@
 import React from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import { StyledText } from '../../../src/package/text'
-import { XStack } from '../../../src/package/stack'
-import { theme } from '../../../src/package/theme'
-import { StyledSpacer } from '../../../src/package/spacer'
+import { StyledText } from '../package/text'
+import { XStack } from '../package/stack'
+import { theme } from '../package/theme'
+import { StyledSpacer } from '../package/spacer'
 import { useNavigation } from '@react-navigation/native'
-import { StyledCycle } from '../../../src/package/cycle'
+import { StyledCycle } from '../package/cycle'
 
 const SharedHeader = ({
 	leftIcon = false,
