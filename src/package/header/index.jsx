@@ -18,8 +18,7 @@ const Headers = styled(View, {
     justifyContent: 'flex-start'
   },
   variants: {
-    marginTop: size => {
-
+    marginTop: (size=0) => {
       if (!isValidNumber(size)) {
         throw new Error('Invalid marginTop value')
       }

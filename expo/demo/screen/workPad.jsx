@@ -11,6 +11,7 @@ import { StyledInput } from '../package/form'
 import { StyledScrollView } from '../package/scrollView'
 import { ScrollView } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { StyledButton } from '../package/button'
 
 const WorkPad = () => {
   return (
@@ -30,10 +31,7 @@ const WorkPad = () => {
         alignItems='center'
 			>
         {/* <Header /> */}
-        <StyledText
-        >
-          See Your Changes
-        </StyledText>
+        <StyledText>See Your Changes</StyledText>
         <StyledInput
           label={'FirstName'}
           keyboardType='default'
@@ -48,6 +46,9 @@ const WorkPad = () => {
           placeholderTextColor={theme.colors.gray[400]}
           onChangeText={text => {}}
 				/>
+        <StyledButton>
+          <StyledText>See Your Changes</StyledText>
+        </StyledButton>
       </YStack>
     </StyledSafeAreaView>
   )

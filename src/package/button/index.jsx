@@ -28,7 +28,8 @@ const Button = styled(TouchableOpacity, {
       }
       return { borderRadius: size }
     },
-    flex: (size = 0) => {
+    flex: (size) => {
+      if (!size) return
       if (!isValidNumber(size)) {
         throw new Error('Invalid flex value')
       }
