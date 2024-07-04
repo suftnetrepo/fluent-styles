@@ -1,10 +1,7 @@
 import { SafeAreaView } from "react-native";
 import { styled } from "../styled";
 
-const StyledSafeAreaView = styled(SafeAreaView, {
-    base : {
-        flex : 1
-    },
+const StyledSafeAreaView = styled(SafeAreaView, {   
     variants : {
         backgroundColor: (color) => ({
             backgroundColor: color

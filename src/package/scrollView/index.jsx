@@ -1,10 +1,7 @@
 import { ScrollView } from 'react-native'
 import { styled } from '../styled'
 
-const StyledScrollView = styled(ScrollView, {
-  base: {
-    flex: 1
-  },
+const StyledScrollView = styled(ScrollView, {  
   variants: {
     backgroundColor: color => ({
       backgroundColor: color

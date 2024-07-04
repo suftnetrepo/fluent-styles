@@ -8,6 +8,7 @@ import { styled } from '../styled'
 import { StyledCycle } from '../cycle'
 import { StyledText } from '../text'
 import { StyledSpacer } from '../spacer'
+import { isValidNumber } from '../utils'
 
 const Headers = styled(View, {
   base: {
@@ -17,9 +18,13 @@ const Headers = styled(View, {
     justifyContent: 'flex-start'
   },
   variants: {
-    marginTop: size => ({
-      marginTop: size
-    })
+    marginTop: size => {
+
+      if (!isValidNumber(size)) {
+        throw new Error('Invalid marginTop value')
+      }
+      return { marginTop: size }
+    }
   }
 })
 

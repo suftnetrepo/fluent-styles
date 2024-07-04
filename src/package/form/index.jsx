@@ -5,13 +5,14 @@ import { StyledText } from '../text';
 import { StyledSpacer } from '../spacer';
 import { theme } from '../theme';
 import { styled } from '../styled';
+import { isValidColor, isValidNumber, isValidString } from '../utils';
 
 const StyledInputText = styled(TextInput, {
     base: {
         borderColor: theme.colors.gray[800],
         borderWidth: 1,
         borderRadius: 30,
-        backgroundColor: theme.colors.gray[1],
+        backgroundColor: theme.fontWeight.normal[1],
         width: '100%',
         color: theme.colors.gray[800],
         paddingHorizontal: 16,
@@ -19,49 +20,71 @@ const StyledInputText = styled(TextInput, {
         fontSize: theme.fontSize.normal,
         placeholderTextColor: theme.colors.gray[1],
     },
-    variants: {
-        fontWeight: (size) => ({
-            fontWeight: size
-        }),
-        color: (color) => ({
-            color: color
-        }),
-        fontSize: (size) => ({
-            fontSize: size
-        }),
-        fontFamily: (font) => {
-            if (!font) return
-            return {
-                fontFamily: font
-            }
-        },
-        textAlign: (align) => {
-            if (!align) return
-            return {
-                textAlign: align
-            }
-        },       
-        borderRadius: (value = 16) => ({
-            borderRadius: value
-        }),
-        borderColor: (value) => ({
-            borderColor: value
-        }),
-        backgroundColor: (value) => ({
-            backgroundColor: value
-        }),
-        noBorder: {
-            true: { borderWidth: 0 }
-        },
-        placeholderTextColor: (value) => ({
-            placeholderTextColor: value
-        }),
+    variants : {
+    fontWeight: (size = theme.fontWeight.normal) => {
+        if (!isValidString(size)) {
+            throw new Error('Invalid fontWeight value');
+        }
+        return { fontWeight: size };
     },
+    color: (color = theme.colors.gray[800]) => {
+        if (!isValidColor(color)) {
+            throw new Error('Invalid color value');
+        }
+        return { color: color };
+    },
+    fontSize: (size = theme.fontSize.normal) => {
+        if (!isValidNumber(size)) {
+            throw new Error('Invalid fontSize value');
+        }
+        return { fontSize: size };
+    },
+    fontFamily: font => {
+      if (!font) return
+      return {
+        fontFamily: font
+      }
+    },
+    textAlign: (align = 'left') => {
+        const validAlignments = ['auto', 'left', 'right', 'center', 'justify'];
+        if (!validAlignments.includes(align)) {
+            throw new Error('Invalid textAlign value');
+        }
+        return { textAlign: align };
+    },
+    borderRadius: (value = 16) => {
+        if (!isValidNumber(value)) {
+            throw new Error('Invalid borderRadius value');
+        }
+        return { borderRadius: value };
+    },
+    borderColor: (value  = theme.colors.gray[100]) => {
+        if (!isValidColor(value)) {
+            throw new Error('Invalid borderColor value');
+        }
+        return { borderColor: value };
+    },
+    backgroundColor: (value = theme.colors.gray[1]) => {
+        if (!isValidColor(value)) {
+            throw new Error('Invalid backgroundColor value');
+        }
+        return { backgroundColor: value };
+    },
+    noBorder: {
+        true: { borderWidth: 0 }
+    },
+    placeholderTextColor: (value = theme.colors.gray[800]) => {
+        if (!isValidColor(value)) {
+            throw new Error('Invalid placeholderTextColor value');
+        }
+        return { placeholderTextColor: value };
+    },
+}
 });
 
 const StyledInput = forwardRef(({ label, flex = 0, borderColor, errorMessage, error, errorProps, labelProps, ...rest }, ref) => {
     return (
-        <YStack flex={flex} justifyContent='flex-start' alignItems='flex-start'>
+        <YStack width={'100%'}>
             {
                 label && (
                     <>

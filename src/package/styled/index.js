@@ -16,18 +16,6 @@ const styled = (Component, { base, variants } = {}) => {
         if (style) {
           Object.assign(styles, style);
         }
-      } else if (
-        variantSelected &&
-        typeof variantSelected === "string" &&
-        variantSelected.includes(".")
-      ) {
-        const value = getNestedVariant(variantValue, variantSelected);
-        if (value) {
-          Object.assign(
-            styles,
-            typeof value === "string" ? { [category]: value } : value
-          );
-        }
       } else if (variantValue && variantValue[variantSelected]) {
         const value = variantValue[variantSelected];
         Object.assign(
@@ -40,11 +28,5 @@ const styled = (Component, { base, variants } = {}) => {
     return <Component {...props} style={styles} ref={ref}  />;
   });
 };
-
-// @ts-ignore
-function getNestedVariant(object, path) {
-  // @ts-ignore
-  return path.split(".").reduce((acc, part) => acc && acc[part], object);
-}
 
 export { styled }

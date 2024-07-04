@@ -1,6 +1,6 @@
 import { Platform, Dimensions } from 'react-native'
-import { theme } from '../theme'
 import React from 'react'
+import { theme } from '../package/theme'
 
 export const isValidColor = value =>
 	/^#[0-9A-F]{6}$/i.test(value) || typeof value === 'string' // Simple hex color validation, expand as needed

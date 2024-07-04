@@ -15,7 +15,9 @@
     "react-native",
     "styles",
     "variants",
-    "styling"
+    "styling",
+    "ios",
+    "android"
   ],
   "bugs": {
     "url": "https://github.com/suftnetrepo/fluent-styles/issues"
@@ -28,15 +30,14 @@
   "files": [
     "src",
     "lib",
-    "!**/__tests__",
-    "!**/__fixtures__",
-    "!**/__mocks__"
+    "!expo"
   ],
   "scripts": {
     "test": "jest",
     "build": "bob build",
-    "prepare": "bob build",
-    "release": "release-it"
+    "prepack": "bob build",
+    "release": "release-it",
+    "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -63,6 +64,18 @@
       "commonjs",
       "module"
     ]
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true
+    }    
   },
   "eslintIgnore": [
     "node_modules/",

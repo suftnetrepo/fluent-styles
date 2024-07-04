@@ -2,6 +2,7 @@ import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import { styled } from '../styled'
 import { theme } from '../theme'
+import { isValidColor, isValidNumber } from '../utils'
 
 const Button = styled(TouchableOpacity, {
   base: {
@@ -14,24 +15,38 @@ const Button = styled(TouchableOpacity, {
     alignItems: 'center'
   },
   variants: {
-    borderColor: color => ({
-      borderColor: color
-    }),
-    borderRadius: (size = 0) => ({
-      borderRadius: size
-    }),
-    flex: size => ({
-      flex: size
-    }),
-    width: size => ({
-      width: size
-    }),
-    height: size => ({
-      height: size
-    }),
-    backgroundColor: color => ({
-      backgroundColor: color
-    }),
+    borderColor: color => {
+      if (!isValidColor(color)) {
+        throw new Error('Invalid color value')
+      }
+      return { borderColor: color }
+    },
+    borderRadius: (size = 32) => {
+      if (!isValidNumber(size)) {
+        throw new Error('Invalid borderRadius value')
+      }
+      return { borderRadius: size }
+    },
+    flex: size => {
+      if (!isValidNumber(size)) {
+        throw new Error('Invalid flex value')
+      }
+      return { flex: size }
+    },
+    width: size => {
+      if (!size) return
+      return { width: size }
+    },
+    height: size => {
+      if (!size) return
+      return { height: size }
+    },
+    backgroundColor: color => {
+      if (!isValidColor(color)) {
+        throw new Error('Invalid backgroundColor value')
+      }
+      return { backgroundColor: color }
+    },
     link: {
       true: {
         borderColor: theme.colors.transparent,

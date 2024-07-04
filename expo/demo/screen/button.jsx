@@ -201,7 +201,7 @@ const Button = () => {
                     paddingVertical={8}
                     justifyContent='flex-start'
                     alignItems='flex-start'
-                    backgroundColor={theme.colors.gray[50]}
+                    backgroundColor={theme.colors.gray[50]}                     
                 >
                     <StyledButton
                         borderColor={theme.colors.pink[500]}

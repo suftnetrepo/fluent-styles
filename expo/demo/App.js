@@ -1,63 +1,67 @@
-import React, { useEffect, useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import "@expo/metro-runtime";
-import * as Font from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
-import Home from './screen/home';
-import Header from './screen/header';
-import Text from './screen/text';
+import React, { useEffect, useState } from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import '@expo/metro-runtime'
+import * as Font from 'expo-font'
+import * as SplashScreen from 'expo-splash-screen'
+import Home from './screen/home'
+import Header from './screen/header'
+import Text from './screen/text'
 import Button from './screen/button'
-import Image from './screen/image';
-import Card from './screen/card';
-import CheckBox from './screen/checkbox';
-import RadioButton from './screen/radioButton';
-import Badge from './screen/badges';
-import Form from './screen/form';
-import Dialog from './screen/dialog';
-import Switch from './screen/switch';
+import Image from './screen/image'
+import Card from './screen/card'
+import CheckBox from './screen/checkbox'
+import RadioButton from './screen/radioButton'
+import Badge from './screen/badges'
+import Form from './screen/form'
+import Dialog from './screen/dialog'
+import Switch from './screen/switch'
+import WorkPad from './screen/workPad'
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 
 export const useFonts = async () => {
   await Font.loadAsync({
     'OpenSans-Regular': require('./assets/fonts/Open_Sans/OpenSans-Regular.ttf'),
-    'OpenSans-Bold': require('./assets/fonts/Open_Sans/OpenSans-Bold.ttf'), 
-    'OpenSans-Italic': require('./assets/fonts/Open_Sans/OpenSans-Italic.ttf'),   
-  });
-};
-
-function Navigator() {
-  return (
-    <Stack.Navigator initialRouteName="home" screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="home" component={Home} />
-      <Stack.Screen name="header" component={Header} />
-      <Stack.Screen name="text" component={Text} />
-      <Stack.Screen name="button" component={Button} />
-      <Stack.Screen name="image" component={Image} />
-      <Stack.Screen name="card" component={Card} />
-      <Stack.Screen name="checkbox" component={CheckBox} />
-      <Stack.Screen name="radio-button" component={RadioButton} />
-      <Stack.Screen name="badge" component={Badge} />
-      <Stack.Screen name="form" component={Form} />
-      <Stack.Screen name="switch" component={Switch} />
-      <Stack.Screen name="dialog" component={Dialog} />
-    </Stack.Navigator>
-  );
+    'OpenSans-Bold': require('./assets/fonts/Open_Sans/OpenSans-Bold.ttf'),
+    'OpenSans-Italic': require('./assets/fonts/Open_Sans/OpenSans-Italic.ttf')
+  })
 }
 
-export default function App() {
-  const [fontsLoaded, setFontsLoaded] = useState(false);
+function Navigator () {
+  return (
+    <Stack.Navigator
+      initialRouteName='home'
+      screenOptions={{ headerShown: false }}
+		>
+      <Stack.Screen name='home' component={Home} />
+      <Stack.Screen name='header' component={Header} />
+      <Stack.Screen name='text' component={Text} />
+      <Stack.Screen name='button' component={Button} />
+      <Stack.Screen name='image' component={Image} />
+      <Stack.Screen name='card' component={Card} />
+      <Stack.Screen name='checkbox' component={CheckBox} />
+      <Stack.Screen name='radio-button' component={RadioButton} />
+      <Stack.Screen name='badge' component={Badge} />
+      <Stack.Screen name='form' component={Form} />
+      <Stack.Screen name='switch' component={Switch} />
+      <Stack.Screen name='dialog' component={Dialog} />
+      <Stack.Screen name='work-pad' component={WorkPad} />
+    </Stack.Navigator>
+  )
+}
+
+export default function App () {
+  const [fontsLoaded, setFontsLoaded] = useState(false)
 
   useEffect(() => {
-    async function loadFonts() {
-      await useFonts();
-      SplashScreen.hideAsync().catch(() => {   
-      });
-      setFontsLoaded(true); 
+    async function loadFonts () {
+      await useFonts()
+      SplashScreen.hideAsync().catch(() => {})
+      setFontsLoaded(true)
     }
-    loadFonts();
-  }, []);
+    loadFonts()
+  }, [])
 
   if (!fontsLoaded) {
     return null
@@ -67,11 +71,5 @@ export default function App() {
     <NavigationContainer>
       <Navigator />
     </NavigationContainer>
-  );
+  )
 }
-
-
-
-
-
-

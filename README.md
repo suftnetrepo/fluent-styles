@@ -24,7 +24,7 @@ After installing the package, you can use it to wrap your components with styled
 React Example
 
 import React from 'react';
-import styled from 'style-ease';
+import styled from 'fluent-styles';
 
 const baseStyles = {
   padding: '20px',

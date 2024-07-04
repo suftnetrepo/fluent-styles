@@ -51,7 +51,7 @@ const Home = () => {
     <StyledSafeAreaView backgroundColor={theme.colors.gray[200]}>
       <StyledHeader
         backgroundColor={theme.colors.gray[1]}
-        statusProps={{ translucent: false }}      
+        statusProps={{ translucent: false }}
 			>
         <StyledHeader.Title title={'Samples'} icon />
       </StyledHeader>
@@ -97,6 +97,8 @@ const Home = () => {
             icon={'switch-account'}
             screen={'switch'}
 					/>
+          <StyledSpacer marginHorizontal={4} />
+          <RenderButton title='Work Pad' icon={'badge'} screen={'work-pad'} />
         </XStack>
       </YStack>
     </StyledSafeAreaView>

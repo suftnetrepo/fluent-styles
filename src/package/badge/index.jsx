@@ -5,6 +5,7 @@ import { XStack, YStack } from "../stack";
 import { StyledSpacer } from "../spacer";
 import { styled } from "../styled";
 import { theme } from "../theme";
+import { isValidColor, isValidNumber, isValidString } from '../utils';
 
 const Badge = styled(Text, {
     base: {
@@ -18,15 +19,24 @@ const Badge = styled(Text, {
         textAlign: 'center'
     },
     variants: {
-        fontWeight: (size) => ({
-            fontWeight: size
-        }),
-        color: (color) => ({
-            color: color
-        }),
-        fontSize: (size) => ({
-            fontSize: size
-        }),
+        fontWeight: (size = theme.fontWeight.normal) => {
+            if (!isValidString(size)) {
+                throw new Error('Invalid fontWeight value')
+            }
+            return { fontWeight: size }
+        },
+        color: (color = theme.colors.gray[800]) => {
+            if (!isValidColor(color)) {
+                throw new Error('Invalid color value')
+            }
+            return { color: color }
+        },
+        fontSize: (size = theme.fontSize.normal) => {
+            if (!isValidNumber(size)) {
+                throw new Error('Invalid fontSize value')
+            }
+            return { fontSize: size }
+        },
         flexWrap: 'wrap',
         absolute: {
             true: {
@@ -39,24 +49,43 @@ const Badge = styled(Text, {
                 fontFamily: font
             }
         },
-        textAlign: (align) => ({
-            textAlign: align || 'center'
-        }),
-        borderColor: color => ({
-            borderColor: color || theme.colors.gray[300]
-        }),
-        borderRadius: (size) => ({
-            borderRadius: size || 32
-        }),
-        backgroundColor: color => ({
-            backgroundColor: color || theme.colors.gray[300]
-        }),
-        right: (size) => ({
-            right: size
-        }),
-        top: (size) => ({
-            top: size
-        }),
+        textAlign: (align = 'left') => {
+            const validAlignments = ['auto', 'left', 'right', 'center', 'justify']
+            if (!validAlignments.includes(align)) {
+                throw new Error('Invalid textAlign value')
+            }
+            return { textAlign: align }
+        },
+        borderColor: color => {
+            if (!isValidColor(color)) {
+                throw new Error('Invalid color value')
+            }
+            return { borderColor: color }
+        },
+        borderRadius: (size = 32) => {
+            if (!isValidNumber(size)) {
+                throw new Error('Invalid borderRadius value')
+            }
+            return { borderRadius: size }
+        },
+        backgroundColor: color => {
+            if (!isValidColor(color)) {
+                throw new Error('Invalid color value')
+            }
+            return { backgroundColor: color }
+        },
+        right: (size = 0) => {
+            if (!isValidNumber(size)) {
+                throw new Error('Invalid right value')
+            }
+            return { right: size }
+        },
+        top: (size = 0) => {
+            if (!isValidNumber(size)) {
+                throw new Error('Invalid top value')
+            }
+            return { top: size }
+        },
     }
 })
 
