@@ -3,7 +3,6 @@ import { styled } from '../styled'
 import { TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { theme } from '../theme'
-import { isValidColor, isValidNumber, isValidString } from '../utils'
 
 const RadioButton = styled(TouchableOpacity, {
   base: {
@@ -17,14 +16,12 @@ const RadioButton = styled(TouchableOpacity, {
     flexDirection: 'column'
   },
   variants: {
-    width: size => {
-      if (!size) return
-      return { width: size }
-    },
-    height: size => {
-      if (!size) return
-      return { height: size }
-    },
+    height: size => ({
+      height: size || 24
+    }),
+    width: size => ({
+      width: size || 24
+    }),
     disabled: {
       true: {
         backgroundColor: theme.colors.gray[500]
@@ -46,25 +43,21 @@ const RadioButton = styled(TouchableOpacity, {
 })
 
 const StyledRadioButton = ({
+	name= "",
 	onPress,
 	disabled = false,
+	selected,
 	checkedColor,
 	iconProps,
 	...rest
 }) => {
-  const [checked, setChecked] = useState(false)
-
-  const toggleCheckbox = () => {
-    setChecked(!checked)
-    onPress && onPress(!checked)
-  }
-
+  const checked = selected === name 
   return (
     <RadioButton
       disabled={disabled}
       checked={checked}
       checkedColor={checked && checkedColor && checkedColor}
-      onPress={() => toggleCheckbox()}
+      onPress={() => onPress && onPress(name)}
       {...rest}
 		>
       {checked &&

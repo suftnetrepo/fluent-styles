@@ -9,6 +9,7 @@ import { StyledCycle } from '../cycle'
 import { StyledText } from '../text'
 import { StyledSpacer } from '../spacer'
 import { isValidNumber } from '../utils'
+import { getStatusBarHeight } from '../utils/statusBar'
 
 const Headers = styled(View, {
   base: {
@@ -18,30 +19,33 @@ const Headers = styled(View, {
     justifyContent: 'flex-start'
   },
   variants: {
-    marginTop: (size=0) => {
+    marginTop: (size = 0) => {
       if (!isValidNumber(size)) {
         throw new Error('Invalid marginTop value')
       }
       return { marginTop: size }
+    },
+    statusHeight: (height = 0) => {
+      return { paddingTop: height }
     }
   }
 })
 
-const StyledHeader = ({ statusProps, ...rest }) => {
+const StyledHeader = ({ statusProps, skipAndroid = false, ...rest }) => {
   return (
     <YStack>
       <StatusBar
-        translucent
+        translucent = {true} 
         backgroundColor={theme.colors.gray[1]}
         barStyle={'dark-content'}
         {...statusProps}
       />
-      <Headers {...rest} />
+      <Headers statusHeight={getStatusBarHeight(skipAndroid)} {...rest} />
     </YStack>
   )
 }
 
-const Title = ({ navigator, title, icon = false, cycleProps, reload = false, screen, ...rest }) => {
+const Header = ({ navigator, title, icon = false, cycleProps, reload = false, screen, ...rest }) => {
 
   return (
     <XStack justifyContent='flex-start' alignItems='center' flex={1} paddingHorizontal={8}
@@ -85,7 +89,7 @@ const Full = ({ children }) => {
   )
 }
 
-StyledHeader.Title = Title
+StyledHeader.Header = Header
 StyledHeader.Full = Full
 
 export { StyledHeader }

@@ -43,25 +43,21 @@ const RadioButton = styled(TouchableOpacity, {
 })
 
 const StyledRadioButton = ({
+	name,
 	onPress,
 	disabled = false,
+	selected,
 	checkedColor,
 	iconProps,
 	...rest
 }) => {
-  const [checked, setChecked] = useState(false)
-
-  const toggleCheckbox = () => {
-    setChecked(!checked)
-    onPress && onPress(!checked)
-  }
-
+  const checked = selected === name 
   return (
     <RadioButton
       disabled={disabled}
       checked={checked}
       checkedColor={checked && checkedColor && checkedColor}
-      onPress={() => toggleCheckbox()}
+      onPress={() => onPress && onPress(name)}
       {...rest}
 		>
       {checked &&
