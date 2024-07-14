@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { styled } from '../styled'
 import { TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
@@ -10,20 +10,19 @@ const CheckBox = styled(TouchableOpacity, {
     height: 24,
     borderWidth: 2,
     borderRadius: 1,
+    backgroundColor: theme.colors.gray[1],
     borderColor: theme.colors.gray[700],
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column'
   },
   variants: {
-    width: size => {
-      if (!size) return
-      return { width: size }
-    },
-    height: size => {
-      if (!size) return
-      return { height: size }
-    },
+    height: size => ({
+      height: size || 24
+    }),
+    width: size => ({
+      width: size || 24
+    }),
     disabled: {
       true: {
         backgroundColor: theme.colors.gray[500]
@@ -32,6 +31,9 @@ const CheckBox = styled(TouchableOpacity, {
     checked: {
       true: {
         backgroundColor: theme.colors.gray[800]
+      },
+      false: {
+        backgroundColor: theme.colors.gray[1]
       }
     },
     checkedColor: color => {
@@ -45,34 +47,42 @@ const CheckBox = styled(TouchableOpacity, {
 })
 
 const StyledCheckBox = ({
-	onPress,
-	disabled = false,
-	checkedColor,
-	iconProps,
-	...rest
+  onPress,
+  disabled = false,
+  checkedColor,
+  checked = false,
+  iconProps,
+  ...rest
 }) => {
-  const [checked, setChecked] = useState(false)
+  const [check, setCheck] = useState(false)
+
+  useEffect(
+    () => {
+      setCheck(checked)
+    },
+    [checked]
+  )
 
   const toggleCheckbox = () => {
-    setChecked(!checked)
-    onPress && onPress(!checked)
+    setCheck(!check)
+    onPress && onPress(!check)
   }
 
   return (
     <CheckBox
       disabled={disabled}
-      checked={checked}
-      checkedColor={checked && checkedColor && checkedColor}
+      checked={check}
+      checkedColor={check && checkedColor && checkedColor}
       onPress={() => toggleCheckbox()}
       {...rest}
-		>
-      {checked &&
-      <Icon
-        name='check'
-        {...iconProps}
-        color={theme.colors.gray[1]}
-        size={20}
-				/>}
+    >
+      {check &&
+        <Icon
+          name='check'
+          color={theme.colors.gray[1]}
+          size={20}
+          {...iconProps}
+        />}
     </CheckBox>
   )
 }

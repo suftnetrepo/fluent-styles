@@ -29,14 +29,13 @@ const Dropdown = styled(DropDownPicker, {
     }
 })
 
-const StyledDropdown = ({ items, label, errorMessage, labelStyles, ...rest }) => {
+const StyledDropdown = ({ items, label, errorMessage, error, labelStyles, ...rest }) => {
     const [open, setOpen] = useState(false)
     return (
-        <YStack justifyContent='flex-start' alignItems='flex-start'>
+        <>
             {
                 label && (
-                    <>
-                        <StyledSpacer marginVertical={4} />
+                    <>                       
                         <StyledText paddingHorizontal={8} color={theme.colors.gray[600]} fontSize={theme.fontSize.normal} fontWeight={theme.fontWeight.normal} {...labelStyles}>
                             {label}
                         </StyledText>
@@ -47,7 +46,7 @@ const StyledDropdown = ({ items, label, errorMessage, labelStyles, ...rest }) =>
             }
             <Dropdown open={open} setOpen={setOpen} items={items} {...rest} />
             {
-                errorMessage && (
+                (error && errorMessage)  && (
                     <>
                         <StyledSpacer marginVertical={1} />
                         <StyledText marginHorizontal={16} fontWeight={theme.fontWeight.bold} fontSize={theme.fontSize.small} color={theme.colors.pink[500]}>
@@ -57,7 +56,7 @@ const StyledDropdown = ({ items, label, errorMessage, labelStyles, ...rest }) =>
                 )
             }
 
-        </YStack>
+        </>
     )
 }
 

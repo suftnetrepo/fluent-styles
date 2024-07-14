@@ -1,6 +1,6 @@
 {
   "name": "fluent-styles",
-  "version": "1.11.0",
+  "version": "1.22.0",
   "description": "Develop different styled versions of UI components.",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
@@ -31,7 +31,8 @@
   "files": [
     "src",
     "lib",
-    "!expo"
+    "!expo",
+    "!node_modules"
   ],
   "scripts": {
     "test": "jest",

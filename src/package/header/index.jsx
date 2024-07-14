@@ -35,7 +35,7 @@ const StyledHeader = ({ statusProps, skipAndroid = false, ...rest }) => {
   return (
     <YStack>
       <StatusBar
-        translucent = {true} 
+        translucent={true}
         backgroundColor={theme.colors.gray[1]}
         barStyle={'dark-content'}
         {...statusProps}
@@ -45,7 +45,7 @@ const StyledHeader = ({ statusProps, skipAndroid = false, ...rest }) => {
   )
 }
 
-const Header = ({ navigator, title, icon = false, cycleProps, reload = false, screen, ...rest }) => {
+const Header = ({ navigator, title, icon = false, cycleProps, rightIcon, rightIconProps, onPress, ...rest }) => {
 
   return (
     <XStack justifyContent='flex-start' alignItems='center' flex={1} paddingHorizontal={8}
@@ -58,13 +58,7 @@ const Header = ({ navigator, title, icon = false, cycleProps, reload = false, sc
                 name={'arrow-back'}
                 size={30}
                 color={theme.colors.gray[700]}
-                onPress={() => {
-                  if (reload && screen && navigator) {
-                    navigator.replace(screen)
-                  } else {
-                    navigator.goBack()
-                  }
-                }}
+                onPress={() => onPress && onPress()}                 
               />
               <StyledSpacer marginHorizontal={4} />
             </>
@@ -79,6 +73,12 @@ const Header = ({ navigator, title, icon = false, cycleProps, reload = false, sc
         >
           {title}
         </StyledText>}
+      {
+        rightIcon && (
+          <>{rightIcon}</>
+        )
+      }
+
     </XStack>
   )
 }

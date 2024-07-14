@@ -20,71 +20,71 @@ const StyledInputText = styled(TextInput, {
         fontSize: theme.fontSize.normal,
         placeholderTextColor: theme.colors.gray[1],
     },
-    variants : {
-    fontWeight: (size = theme.fontWeight.normal) => {
-        if (!isValidString(size)) {
-            throw new Error('Invalid fontWeight value');
-        }
-        return { fontWeight: size };
-    },
-    color: (color = theme.colors.gray[800]) => {
-        if (!isValidColor(color)) {
-            throw new Error('Invalid color value');
-        }
-        return { color: color };
-    },
-    fontSize: (size = theme.fontSize.normal) => {
-        if (!isValidNumber(size)) {
-            throw new Error('Invalid fontSize value');
-        }
-        return { fontSize: size };
-    },
-    fontFamily: font => {
-      if (!font) return
-      return {
-        fontFamily: font
-      }
-    },
-    textAlign: (align = 'left') => {
-        const validAlignments = ['auto', 'left', 'right', 'center', 'justify'];
-        if (!validAlignments.includes(align)) {
-            throw new Error('Invalid textAlign value');
-        }
-        return { textAlign: align };
-    },
-    borderRadius: (value = 16) => {
-        if (!isValidNumber(value)) {
-            throw new Error('Invalid borderRadius value');
-        }
-        return { borderRadius: value };
-    },
-    borderColor: (value  = theme.colors.gray[100]) => {
-        if (!isValidColor(value)) {
-            throw new Error('Invalid borderColor value');
-        }
-        return { borderColor: value };
-    },
-    backgroundColor: (value = theme.colors.gray[1]) => {
-        if (!isValidColor(value)) {
-            throw new Error('Invalid backgroundColor value');
-        }
-        return { backgroundColor: value };
-    },
-    noBorder: {
-        true: { borderWidth: 0 }
-    },
-    placeholderTextColor: (value = theme.colors.gray[800]) => {
-        if (!isValidColor(value)) {
-            throw new Error('Invalid placeholderTextColor value');
-        }
-        return { placeholderTextColor: value };
-    },
-}
+    variants: {
+        fontWeight: (size = theme.fontWeight.normal) => {
+            if (!isValidString(size)) {
+                throw new Error('Invalid fontWeight value');
+            }
+            return { fontWeight: size };
+        },
+        color: (color = theme.colors.gray[800]) => {
+            if (!isValidColor(color)) {
+                throw new Error('Invalid color value');
+            }
+            return { color: color };
+        },
+        fontSize: (size = theme.fontSize.normal) => {
+            if (!isValidNumber(size)) {
+                throw new Error('Invalid fontSize value');
+            }
+            return { fontSize: size };
+        },
+        fontFamily: font => {
+            if (!font) return
+            return {
+                fontFamily: font
+            }
+        },
+        textAlign: (align = 'left') => {
+            const validAlignments = ['auto', 'left', 'right', 'center', 'justify'];
+            if (!validAlignments.includes(align)) {
+                throw new Error('Invalid textAlign value');
+            }
+            return { textAlign: align };
+        },
+        borderRadius: (value = 16) => {
+            if (!isValidNumber(value)) {
+                throw new Error('Invalid borderRadius value');
+            }
+            return { borderRadius: value };
+        },
+        borderColor: (value = theme.colors.gray[100]) => {
+            if (!isValidColor(value)) {
+                throw new Error('Invalid borderColor value');
+            }
+            return { borderColor: value };
+        },
+        backgroundColor: (value = theme.colors.gray[1]) => {
+            if (!isValidColor(value)) {
+                throw new Error('Invalid backgroundColor value');
+            }
+            return { backgroundColor: value };
+        },
+        noBorder: {
+            true: { borderWidth: 0 }
+        },
+        placeholderTextColor: (value = theme.colors.gray[800]) => {
+            if (!isValidColor(value)) {
+                throw new Error('Invalid placeholderTextColor value');
+            }
+            return { placeholderTextColor: value };
+        }       
+    }
 });
 
-const StyledInput = forwardRef(({ label, flex = 0, borderColor, errorMessage, error, errorProps, labelProps, ...rest }, ref) => {
+const StyledInput = forwardRef(({ label, flex = 1, borderColor, errorMessage, error, errorProps, labelProps, ...rest }, ref) => {
     return (
-        <YStack width={'100%'}>
+        <YStack flex={flex}>
             {
                 label && (
                     <>
