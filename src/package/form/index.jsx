@@ -82,34 +82,33 @@ const StyledInputText = styled(TextInput, {
     }
 });
 
-const StyledInput = forwardRef(({ label, flex = 1, borderColor, errorMessage, error, errorProps, labelProps, ...rest }, ref) => {
+const StyledInput = forwardRef(({ label, containerProps, borderColor, errorMessage, error, errorProps, labelProps, ...rest }, ref) => {
     return (
-        <YStack flex={flex}>
+        <>
             {
                 label && (
-                    <>
+                    <YStack width={'100%'} justifyContent='flex-start' alignItems='flex-start' {...containerProps} >
                         <StyledText paddingHorizontal={8} color={theme.colors.gray[800]} fontSize={theme.fontSize.normal} fontWeight={theme.fontWeight.normal} {...labelProps}>
                             {label}
                         </StyledText>
                         <StyledSpacer marginVertical={4} />
-                    </>
+                    </YStack>
                 )
             }
             <StyledInputText placeholderTextColor={theme.colors.gray[400]} ref={ref} {...rest} borderColor={error ? theme.colors.pink[500] : borderColor} />
             {
                 errorMessage && (
-                    <>
+                    <YStack width={'100%'} justifyContent='flex-start' alignItems='flex-start' {...containerProps} >
                         <StyledSpacer marginVertical={1} />
                         <StyledText marginHorizontal={8} fontWeight={theme.fontWeight.bold} fontSize={theme.fontSize.small} color={theme.colors.pink[500]} {...errorProps}>
                             {errorMessage}
                         </StyledText>
-                    </>
+                    </YStack>
                 )
             }
-        </YStack>
+        </>
     )
 })
-
 const StyledMultiInput = ({ label, errorMessage, borderColor, error, errorProps, labelProps, ...rest }) => {
     return (
         <YStack width={'100%'} justifyContent='flex-start' alignItems='flex-start'>
@@ -141,5 +140,5 @@ const StyledMultiInput = ({ label, errorMessage, borderColor, error, errorProps,
     )
 }
 
-export { StyledInput, StyledMultiInput }
+export { StyledInput, StyledMultiInput, StyledInputText as InputText }
 export default StyledInputText

@@ -45,7 +45,7 @@ const StyledHeader = ({ statusProps, skipAndroid = false, ...rest }) => {
   )
 }
 
-const Header = ({ navigator, title, icon = false, cycleProps, rightIcon, rightIconProps, onPress, ...rest }) => {
+const Header = ({ navigator, fontWeight = theme.fontWeight.normal, fontSize = theme.fontSize.normal, iconProps, color = theme.colors.gray[800], textProps, title, icon = false, cycleProps, rightIcon, rightIconProps, onPress, ...rest }) => {
 
   return (
     <XStack justifyContent='flex-start' alignItems='center' flex={1} paddingHorizontal={8}
@@ -58,7 +58,8 @@ const Header = ({ navigator, title, icon = false, cycleProps, rightIcon, rightIc
                 name={'arrow-back'}
                 size={30}
                 color={theme.colors.gray[700]}
-                onPress={() => onPress && onPress()}                 
+                onPress={() => onPress && onPress()}
+                {...iconProps}
               />
               <StyledSpacer marginHorizontal={4} />
             </>
@@ -67,9 +68,9 @@ const Header = ({ navigator, title, icon = false, cycleProps, rightIcon, rightIc
       }
       {title &&
         <StyledText
-          color={theme.colors.gray[800]}
-          fontWeight={theme.fontWeight.normal}
-          fontSize={theme.fontSize.normal}
+          color={color}
+          fontWeight={fontWeight}
+          fontSize={fontSize}
         >
           {title}
         </StyledText>}
