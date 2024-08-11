@@ -87,7 +87,7 @@ const StyledMultiDropdown = ({ items, label, errorMessage, labelStyles, onSelect
                 errorMessage && (
                     <>
                         <StyledSpacer marginVertical={1} />
-                        <StyledText marginHorizontal={16} fontWeight={theme.fontWeight.bold} fontSize={theme.fontSize.small} color={theme.colors.pink[500]}>
+                        <StyledText marginHorizontal={8} fontWeight={theme.fontWeight.bold} fontSize={theme.fontSize.small} color={theme.colors.pink[500]}>
                             {errorMessage}
                         </StyledText>
                     </>

@@ -57,6 +57,14 @@ const variants = {
       throw new Error('Invalid right value')
     }
     return { right: size }
+  },
+  relative: {
+    position: 'relative'
+  },
+  absolute: {
+    true: {
+      position: 'absolute'
+    }
   }
 }
 

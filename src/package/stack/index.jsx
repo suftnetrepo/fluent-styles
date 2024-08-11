@@ -13,7 +13,9 @@ const YStack = styled(View, {
       }
     },
     relative: {
-      position: 'relative'
+      true :{
+        position: 'relative'
+      }     
     },
     absolute: {
       true: {
@@ -34,7 +36,9 @@ const XStack = styled(View, {
     }
   },
   relative: {
-    position: 'relative'
+    true: {
+      position: 'relative'
+    }
   },
   absolute: {
     true: {
