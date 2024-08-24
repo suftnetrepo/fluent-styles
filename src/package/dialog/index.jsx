@@ -16,11 +16,11 @@ const Dialog = styled(Modal, {
 })
 
 const StyledDialog = ({
-	children,
-	animationType = 'fade',
-	transparent = true,
-	visible = false,
-	...rest
+  children,
+  animationType = 'fade',
+  transparent = true,
+  visible = false,
+  ...rest
 }) => {
   return (
     <Dialog
@@ -28,24 +28,32 @@ const StyledDialog = ({
       transparent={transparent}
       animationType={animationType}
       {...rest}
-		>
+    >
       {children}
     </Dialog>
   )
 }
 
 const StyledConfirmDialog = ({
-	visible = false,
-	row,
-	animationType = 'fade',
-	onCancel,
-	onConfirm,
-	transparent = true,
-	dialogProps,
-	...rest
+  visible = false,
+  row,
+  animationType = 'fade',
+  onCancel,
+  onConfirm,
+  transparent = true,
+  dialogProps,
+  ...rest
 }) => {
   const [show, setShow] = useState(visible)
-  const { title, description, cancel = 'Cancel', confirm = 'Confirm' } = rest
+  const {
+    title,
+    description,
+    cancel = 'Cancel',
+    onNeural,
+    confirm = 'Confirm',
+    neutral = 'Neutral',
+    isNeutral= false
+  } = rest
 
   const handleConfirm = () => {
     setShow(false)
@@ -64,32 +72,38 @@ const StyledConfirmDialog = ({
     }
   }
 
+  const handleNeural = () => {
+    setShow(false)
+    if (typeof onNeural === 'function') {
+      onNeural()
+    }
+  }
   return (
     <Dialog
       visible={show}
       transparent={transparent}
       animationType={animationType}
       {...rest}
-		>
+    >
       <YStack
         transparent
         flex={1}
         justifyContent='center'
         alignItems='center'
         {...dialogProps}
-			>
+      >
         <YStack
           width={'90%'}
           borderRadius={8}
           paddingVertical={16}
           paddingHorizontal={16}
           backgroundColor={theme.colors.gray[1]}
-				>
+        >
           <StyledText
             color={theme.colors.gray[800]}
             fontSize={theme.fontSize.normal}
             fontWeight={theme.fontWeight.bold}
-					>
+          >
             {title}
           </StyledText>
           <StyledSpacer marginVertical={1} />
@@ -97,7 +111,7 @@ const StyledConfirmDialog = ({
             color={theme.colors.gray[800]}
             fontSize={theme.fontSize.large}
             fontWeight={theme.fontWeight.normal}
-					>
+          >
             {description}
           </StyledText>
           <StyledSpacer marginVertical={4} />
@@ -107,31 +121,52 @@ const StyledConfirmDialog = ({
               borderColor={theme.colors.red[400]}
               borderRadius={30}
               onPress={() => handleCancel()}
-						>
+            >
               <StyledText
                 paddingHorizontal={20}
                 paddingVertical={4}
                 color={theme.colors.gray[1]}
-                fontSize={theme.fontSize.large}
+                fontSize={theme.fontSize.normal}
                 fontWeight={theme.fontWeight.normal}
-							>
+              >
                 {cancel}
               </StyledText>
             </StyledButton>
             <StyledSpacer marginHorizontal={2} />
+            {(onNeural && isNeutral) && (
+              <>
+                <StyledButton
+                  backgroundColor={theme.colors.orange[400]}
+                  borderColor={theme.colors.orange[400]}
+                  borderRadius={30}
+                  onPress={() => handleNeural()}
+                >
+                  <StyledText
+                    paddingHorizontal={20}
+                    paddingVertical={4}
+                    color={theme.colors.gray[1]}
+                    fontSize={theme.fontSize.normal}
+                    fontWeight={theme.fontWeight.normal}
+                  >
+                    {neutral}
+                  </StyledText>
+                </StyledButton>
+                <StyledSpacer marginHorizontal={2} />
+              </>
+            )}
             <StyledButton
               backgroundColor={theme.colors.green[500]}
               borderColor={theme.colors.green[500]}
               onPress={() => handleConfirm()}
               borderRadius={30}
-						>
+            >
               <StyledText
                 paddingHorizontal={20}
                 paddingVertical={4}
                 color={theme.colors.gray[1]}
-                fontSize={theme.fontSize.large}
+                fontSize={theme.fontSize.normal}
                 fontWeight={theme.fontWeight.normal}
-							>
+              >
                 {confirm}
               </StyledText>
             </StyledButton>
@@ -143,19 +178,19 @@ const StyledConfirmDialog = ({
 }
 
 const StyledOkDialog = ({
-	visible = false,
-	animationType = 'fade',
-	transparent = true,
-	dialogProps,
-	...rest
+  visible = false,
+  animationType = 'fade',
+  transparent = true,
+  dialogProps,
+  ...rest
 }) => {
   const [show, setShow] = useState(visible)
   const {
-		title = "We're sorry, something went wrong.",
-		description = 'Please try again later',
-		ok = 'Ok',
-		onOk
-	} = rest
+    title = "We're sorry, something went wrong.",
+    description = 'Please try again later',
+    ok = 'Ok',
+    onOk
+  } = rest
 
   const handleOk = () => {
     setShow(false)
@@ -169,26 +204,26 @@ const StyledOkDialog = ({
       transparent={transparent}
       animationType={animationType}
       {...rest}
-		>
+    >
       <YStack
         transparent
         flex={1}
         justifyContent='center'
         alignItems='center'
         {...dialogProps}
-			>
+      >
         <YStack
           width={'90%'}
           borderRadius={8}
           paddingVertical={16}
           paddingHorizontal={16}
           backgroundColor={theme.colors.gray[1]}
-				>
+        >
           <StyledText
             color={theme.colors.gray[800]}
             fontSize={theme.fontSize.normal}
             fontWeight={theme.fontWeight.bold}
-					>
+          >
             {title}
           </StyledText>
           <StyledSpacer marginVertical={2} />
@@ -196,7 +231,7 @@ const StyledOkDialog = ({
             color={theme.colors.gray[800]}
             fontSize={theme.fontSize.normal}
             fontWeight={theme.fontWeight.normal}
-					>
+          >
             {description}
           </StyledText>
           <StyledSpacer marginVertical={8} />
@@ -207,14 +242,14 @@ const StyledOkDialog = ({
               borderColor={theme.colors.cyan[500]}
               onPress={handleOk}
               borderRadius={30}
-						>
+            >
               <StyledText
                 paddingHorizontal={20}
                 paddingVertical={8}
                 color={theme.colors.gray[1]}
                 fontSize={theme.fontSize.large}
                 fontWeight={theme.fontWeight.bold}
-							>
+              >
                 {ok}
               </StyledText>
             </StyledButton>
