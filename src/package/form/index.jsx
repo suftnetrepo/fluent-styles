@@ -58,7 +58,7 @@ const StyledInputText = styled(TextInput, {
             }
             return { borderRadius: value };
         },
-        borderColor: (value = theme.colors.gray[100]) => {
+        borderColor: (value = theme.colors.gray[800]) => {
             if (!isValidColor(value)) {
                 throw new Error('Invalid borderColor value');
             }
