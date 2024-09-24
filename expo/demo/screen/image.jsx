@@ -153,14 +153,13 @@ const Image = () => {
             borderRadius={16}
             backgroundColor={theme.colors.gray[1]}
 					>
-            <StyledImage
-              local
+            <StyledImage              
               borderRadius={8}
               borderWidth={1}
               borderColor={theme.colors.gray[200]}
               height={150}
               width={'100%'}
-              source={require('../assets/img/doctor.png')}
+              imageUrl="https://fastly.picsum.photos/id/826/200/300.jpg?hmac=OsVdvGZW1U_-FFoJfJrFVB-9hw0tx1H9ZyEqEaA1W10s"
 						/>
           </XStack>
           <StyledSeparator

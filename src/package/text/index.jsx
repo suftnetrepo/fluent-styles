@@ -28,6 +28,12 @@ const StyledText = styled(Text, {
       }
       return { fontSize: size }
     },
+    numberOfLines: (lines = 0) => {
+      if (!isValidNumber(lines)) {
+        throw new Error('Invalid lines value')
+      }
+      return { numberOfLines: lines }
+    },
     textDecorationLine: {
       true: {
         textDecorationLine: 'underline'

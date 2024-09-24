@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Image as SourceImage, ImageBackground as ImageBg } from 'react-native'
 import { styled } from '../styled'
 import { isValidColor, isValidNumber } from '../utils'
@@ -179,42 +179,116 @@ const ImageBackground = styled(ImageBg, {
   }
 })
 
-const FlexStyledImage = ({ imageUrl, local = false, ...rest }) => {
-  const url = imageUrl
-		? {
-  uri: imageUrl
-}
-		: require('../../assets/img/blank_1.png')
-  return <FlexImage source={local ? imageUrl : url} {...rest} />
+const FlexStyledImage = ({
+	imageUrl,
+	local = false,
+	fallback = require('../../assets/img/blank_1.png'),
+	...rest
+}) => {
+  const [hasError, setHasError] = useState(false)
+  const getImageSource = () => {
+    if (local) {
+      return imageUrl || fallback
+    }
+
+    if (hasError || !imageUrl) {
+      return fallback
+    }
+
+    return { uri: imageUrl }
+  }
+
+  return (
+    <FlexImage
+      source={getImageSource()}
+      onError={() => setHasError(true)}
+      {...rest}
+		/>
+  )
 }
 
-const StyledImage = ({ imageUrl, local = false, ...rest }) => {
-  const url = imageUrl
-		? {
-  uri: imageUrl
-}
-		: require('../../assets/img/blank_1.png')
-  return <Image source={local ? imageUrl : url} {...rest} />
+const FlexStyledBackgroundImage = ({
+	imageUrl,
+	local = false,
+	fallback = require('../../assets/img/blank_1.png'),
+	...rest
+}) => {
+  const [hasError, setHasError] = useState(false)
+  const getImageSource = () => {
+    if (local) {
+      return imageUrl || fallback
+    }
+
+    if (hasError || !imageUrl) {
+      return fallback
+    }
+
+    return { uri: imageUrl }
+  }
+
+  return (
+    <FlexImageBackground
+      source={getImageSource()}
+      onError={() => setHasError(true)}
+      {...rest}
+		/>
+  )
 }
 
-const FlexStyledBackgroundImage = ({ imageUrl, local = false, ...rest }) => {
-  const url = imageUrl
-		? {
-  uri: imageUrl
-}
-		: require('../../assets/img/blank_1.png')
+const StyledImage = ({
+	imageUrl,
+	local = false,
+	fallback = require('../../assets/img/blank_1.png'),
+	...rest
+}) => {
+  const [hasError, setHasError] = useState(false)
+  const getImageSource = () => {
+    if (local) {
+      return imageUrl || fallback
+    }
 
-  return <FlexImageBackground source={local ? imageUrl : url} {...rest} />
+    if (hasError || !imageUrl) {
+      return fallback
+    }
+
+    return { uri: hasError ? fallback: imageUrl }
+  }
+
+  return (
+    <Image
+      source={getImageSource()}
+      onError={() => setHasError(true)}
+      {...rest}
+		/>
+  )
 }
 
-const StyledBackgroundImage = ({ imageUrl, local = false, ...rest }) => {
-  const url = imageUrl
-		? {
-  uri: imageUrl
-}
-		: require('../../assets/img/blank_1.png')
+const StyledBackgroundImage = ({
+	imageUrl,
+	local = false,
+	fallback = require('../../assets/img/blank_1.png'),
+	...rest
+}) => {
+  const [hasError, setHasError] = useState(false)
+  const getImageSource = () => {
+    if (local) {
+      return imageUrl || fallback
+    }
 
-  return <ImageBackground source={local ? imageUrl : url} {...rest} />
+    if (hasError || !imageUrl) {
+      return fallback
+    }
+
+    return { uri: imageUrl }
+  }
+
+  return (
+    <ImageBackground
+      source={getImageSource()}
+      onError={() => setHasError(true)}
+      {...rest}
+		/>
+  )
 }
 
 export {
