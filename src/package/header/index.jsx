@@ -31,7 +31,7 @@ const Headers = styled(View, {
   }
 })
 
-const StyledHeader = ({ statusProps, skipAndroid = false, ...rest }) => {
+const StyledHeader = ({ statusProps, skipAndroid = false, skipIos = true, ...rest }) => {
   return (
     <YStack>
       <StatusBar
@@ -40,7 +40,7 @@ const StyledHeader = ({ statusProps, skipAndroid = false, ...rest }) => {
         barStyle={'dark-content'}
         {...statusProps}
       />
-      <Headers statusHeight={getStatusBarHeight(skipAndroid)} {...rest} />
+      <Headers statusHeight={getStatusBarHeight(skipAndroid, skipIos)} {...rest} />
     </YStack>
   )
 }

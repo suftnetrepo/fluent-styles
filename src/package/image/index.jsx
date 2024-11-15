@@ -5,6 +5,7 @@ import { isValidColor, isValidNumber } from '../utils'
 
 const base = {
   borderRadius: 0,
+  borderWidth : 0,
   resizeMode: 'cover',
   position: 'relative'
 }

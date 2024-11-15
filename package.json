@@ -1,6 +1,6 @@
 {
   "name": "fluent-styles",
-  "version": "1.47.0",
+  "version": "1.49.0",
   "description": "Develop different styled versions of UI components.",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
