@@ -136,6 +136,7 @@ const StyledConfirmDialog = ({
 }
 
 const StyledOkDialog = ({
+  
 	visible = false,
 	animationType = 'fade',
 	transparent = true,

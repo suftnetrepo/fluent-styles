@@ -20,7 +20,7 @@ const Badge = () => {
     <StyledSafeAreaView backgroundColor={theme.colors.gray[200]}>
       <StyledHeader
         backgroundColor={theme.colors.gray[1]}
-        paddingVertical={8}
+        paddingVertical={4}
         statusProps={{ translucent: false }}
 			>
         <SharedHeader title={'Badge'} leftIcon />
