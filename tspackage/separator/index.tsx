@@ -3,6 +3,7 @@ import {
   View,
   ViewProps as RNViewProps,
   ViewStyle,
+  DimensionValue,
 } from 'react-native';
 import { theme } from '../utils/theme';
 import { styled } from '../utils/styled';
@@ -11,7 +12,7 @@ import { XStack, YStack } from '../stack';
 /**
  * Props for Separator component
  */
-interface SeparatorProps extends Omit<RNViewProps, 'ref'> {
+interface SeparatorProps extends Omit<RNViewProps, 'ref' | 'width' | 'height'> {
   // Type configuration
   orientation?: 'horizontal' | 'vertical';
 
@@ -21,8 +22,9 @@ interface SeparatorProps extends Omit<RNViewProps, 'ref'> {
 
   // Sizing
   thickness?: number;
-  width?: number | string;
-  height?: number | string;
+  width?: DimensionValue;
+  height?: DimensionValue;
+  flex?: number;
 
   // Spacing
   margin?: number;
@@ -111,6 +113,7 @@ const SeparatorComponent = forwardRef<any, SeparatorProps>(
       thickness = 1,
       width,
       height,
+      flex,
       margin = 0,
       marginVertical,
       marginHorizontal,
@@ -131,12 +134,13 @@ const SeparatorComponent = forwardRef<any, SeparatorProps>(
       ...(orientation === 'horizontal' ? {
         height: thickness,
         backgroundColor: finalColor,
-        width: width || '100%',
+        width: width ?? '100%',
       } : {
         width: thickness,
         backgroundColor: finalColor,
-        height: height || '100%',
+        height: height ?? '100%',
       }),
+      ...(flex !== undefined && { flex }),
       margin: margin || undefined,
       marginVertical: marginVertical,
       marginHorizontal: marginHorizontal,
@@ -349,7 +353,7 @@ const DottedSeparator = forwardRef<any, SeparatorProps>(
         ref={ref}
         gap={4}
         alignItems="center"
-        width={width || '100%'}
+        width={(width ?? '100%') as DimensionValue}
         margin={margin}
         {...rest}
       >
